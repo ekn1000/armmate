@@ -2,7 +2,7 @@ window.ARMMATE_TRANSLATIONS = {
   hy: {
     title: "Տուրիստների աջակցություն Հայաստանում․ անձնական ասիստենտ | արմմեյթ",
     description:
-      "Անձնական ասիստենտ Հայաստանում՝ տեղական խորհուրդներ, տրանսպորտի ու ամրագրումների կազմակերպման օգնություն։ Առցանց աջակցություն և ընտրովի ուղեկցում՝ անհատական առաջարկով։",
+      "Անձնական ասիստենտ Հայաստանում՝ խորհուրդներ, տրանսպորտի և ամրագրումների կազմակերպման օգնություն։ Առցանց աջակցություն ու ընտրովի ուղեկցում՝ քո կարիքներով։",
     skip: "Անցնել բովանդակությանը",
     navServices: "Ծառայություններ",
     navHow: "Ինչպես է աշխատում",
@@ -560,7 +560,7 @@ window.ARMMATE_TRANSLATIONS = {
   en: {
     title: "Armenia Travel Assistant & Local Tourist Support | ARMMATE",
     description:
-      "Explore Armenia independently with a personal local assistant. Get help with transport, reservations and everyday questions, plus optional in-person companionship.",
+      "Explore Armenia independently with a local assistant. Get help with transport, reservations and everyday questions, plus optional in-person companionship.",
     skip: "Skip to content",
     navServices: "Our assistance",
     navHow: "How it works",

@@ -126,7 +126,7 @@ module.exports = {
     en: {
       title: "Personal Travel Assistant in Armenia — Local Support | ARMMATE",
       description:
-        "Explore Armenia independently with a personal local assistant. Get recommendations, help with transport, reservations and everyday communication, with individual pricing.",
+        "Personal travel assistance in Armenia: local recommendations, transport and reservation help, and everyday communication support. Get an individual offer.",
       h1: "A personal travel assistant for your visit to Armenia",
       lead: "Keep the freedom to explore independently, with one reliable local contact. Talk through your plans and get practical help with transport, reservations, communication and everyday situations in Armenia.",
       sections: [
@@ -189,7 +189,7 @@ module.exports = {
     hy: {
       title: "Անձնական տեղացի ուղեկից Երևանում | արմմեյթ",
       description:
-        "Տեղացի ուղեկից Երևանում՝ զբոսանքի, գնումների, սրճարանների և հաղորդակցման համար։ Դու ընտրում ես օրերը, ժամերն ու զբաղմունքները․ արժեքը համաձայնեցվում է անհատապես։",
+        "Տեղացի ուղեկից Երևանում՝ զբոսանքի, գնումների և հաղորդակցման համար։ Ընտրիր օրերը, ժամերն ու զբաղմունքները․ արժեքը համաձայնեցվում է անհատապես։",
       h1: "Տեղացի ուղեկից Երևանում՝ քո ծրագրով",
       lead: "Երբ պարզապես ուզում ես, որ կողքիդ տեղացի մարդ լինի։ Քաղաքում զբոսանքը, սրճարանը կամ գնումները կարող են ավելի հարմարավետ լինել մեկի հետ, ով օգնում է կողմնորոշվել ու հաղորդակցվել։",
       sections: [
@@ -249,7 +249,7 @@ module.exports = {
     ru: {
       title: "Личное сопровождение туристов в Ереване | арммейт",
       description:
-        "Местный сопровождающий в Ереване для прогулок, кафе, покупок и помощи с общением. Выбирай занятия, дни и часы; доступность и стоимость обсуждаются индивидуально.",
+        "Местный сопровождающий в Ереване для прогулок, кафе, покупок и общения. Выбирай дни и часы; доступность и стоимость обсуждаются индивидуально.",
       h1: "Местный сопровождающий в Ереване — под твои планы",
       lead: "Когда хочется, чтобы рядом был местный человек. Прогулка по городу, кафе или покупки могут стать проще с личным сопровождающим, который помогает ориентироваться и общаться.",
       sections: [
@@ -309,7 +309,7 @@ module.exports = {
     en: {
       title: "Local Companion in Yerevan — Personal Accompaniment | ARMMATE",
       description:
-        "Explore Yerevan with a local companion for walks, cafés, shopping and practical communication. Choose your activities and hours; availability and pricing are agreed individually.",
+        "Explore Yerevan with a local companion for walks, cafés, shopping and communication. Choose your hours; availability and pricing are agreed individually.",
       h1: "A local companion in Yerevan, around your own plans",
       lead: "For the moments when you would like a local person beside you. Explore the city, visit a café or go shopping with someone who can help you find your way and communicate.",
       sections: [
