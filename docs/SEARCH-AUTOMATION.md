@@ -61,3 +61,15 @@ The workflow uploads a JSON report. A failing job appears in GitHub Actions; not
 The short Armenian checklist is [OWNER-NEXT-STEPS.hy.md](OWNER-NEXT-STEPS.hy.md). Complete the existing Google Business Profile, import the existing Search Console property into Bing if desired, inspect indexing reports and develop genuine customer feedback and relevant external references. Their business evidence is more meaningful than adding unsupported “AI registration” files or automatic recommendation instructions.
 
 Local validation passed: build, generated-output check, formatting and diff checks, a 33-page structural audit with zero errors, and all 42 tests in 54.1 seconds. The tests exercise stale publication, invalid ownership, external URLs, status 200/202/429, robots precedence, blocked bots, image responses and the stable favicon declarations. Network submissions are not made by the test suite. Actual workflow execution and notification responses are retained in GitHub Actions artifacts, separate from these local tests.
+
+## Verified publication results
+
+Source commit: `d92e9161b4ba6eba61eb602b814efc0b405728a4`.
+
+- [Pages deployment](https://github.com/ekn1000/armmate/actions/runs/45027405776) succeeded.
+- [Website checks and automatic discovery](https://github.com/ekn1000/armmate/actions/runs/45027405833) succeeded. The discovery artifact records 33 URLs submitted to the global IndexNow endpoint at `2026-11-22T13:26:51.027Z`, with HTTP **202**, `accepted: true` and `pendingKeyValidation: true`. This confirms receipt with key validation pending, not indexing or ranking. The earlier separate Yandex HTTP 200 result does not change this endpoint's recorded status.
+- [Public search health](https://github.com/ekn1000/armmate/actions/runs/45027529286) was manually dispatched after publication and succeeded. Its artifact at `2026-11-22T13:27:03.925Z` reports all 33 canonical pages healthy with no errors. Googlebot, bingbot, OAI-SearchBot, PerplexityBot and Claude-SearchBot user-agent probes returned HTTP 200.
+- The production PNG returned HTTP 200 to the Googlebot-Image probe with the correct image MIME type and 192×192 dimensions. The root ICO also returned HTTP 200. Google's actual Search favicon refresh remains under Google's control.
+- An independent local read-only production check at `2026-11-22T13:26:52.062Z` also found all 33 pages healthy. These public probes do not replace Search Console, Bing or Yandex account reports.
+
+The generated JSON reports remain in ignored `qa/` files and GitHub Actions artifacts. No credentials or visitor information are included in this report.
