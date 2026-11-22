@@ -91,13 +91,13 @@ module.exports = async function buildContentPages({
         .forEach((node) => node.remove());
       document.querySelectorAll("script[src]").forEach((node) => node.remove());
       const script = document.createElement("script");
-      script.setAttribute("src", prefix + "content.js?v=discovery-2026-11-22");
+      script.setAttribute("src", prefix + "content.js?v=" + seo.assetVersion);
       script.setAttribute("defer", "");
       document.head.append(script);
       const analytics = document.createElement("script");
       analytics.setAttribute(
         "src",
-        prefix + "analytics.js?v=discovery-2026-11-22",
+        prefix + "analytics.js?v=" + seo.assetVersion,
       );
       analytics.setAttribute("defer", "");
       document.head.append(analytics);

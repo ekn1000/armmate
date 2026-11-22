@@ -7,31 +7,22 @@
     <title>
       Personal Travel Assistant in Armenia — Local Support | ARMMATE
     </title>
+
+    <link rel="stylesheet" href="../../styles.css?v=discovery-2026-11-22-2" />
+
+    <link type="image/png" sizes="192x192" href="/favicon.png" rel="icon" />
     <link
-      sizes="any"
-      rel="icon"
       type="image/svg+xml"
-      href="../../assets/favicon.svg?v=friends-1"
-    />
-
-    <link rel="stylesheet" href="../../styles.css?v=discovery-2026-11-22" />
-
-    <link
-      type="image/png"
-      sizes="48x48"
-      href="../../assets/icon-48.png?v=friends-1"
+      sizes="any"
+      href="../../assets/favicon.svg"
       rel="icon"
     />
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
     <link
       type="image/png"
       sizes="180x180"
-      href="../../assets/icon-180.png?v=friends-1"
+      href="../../assets/icon-180.png"
       rel="apple-touch-icon"
-    />
-    <link
-      href="../../assets/favicon.ico?v=friends-1"
-      type="image/x-icon"
-      rel="shortcut icon"
     />
     <link
       href="../../assets/manrope-regular.woff2"
@@ -55,8 +46,8 @@
       rel="preload"
     />
 
-    <script defer src="../../content.js?v=discovery-2026-11-22"></script>
-    <script defer src="../../analytics.js?v=discovery-2026-11-22"></script>
+    <script defer src="../../content.js?v=discovery-2026-11-22-2"></script>
+    <script defer src="../../analytics.js?v=discovery-2026-11-22-2"></script>
     <meta
       content="Explore Armenia independently with a personal local assistant. Get recommendations, help with transport, reservations and everyday communication, with individual pricing."
       name="description"
@@ -154,7 +145,27 @@
               "contactType": "customer service",
               "availableLanguage": ["Armenian", "Russian", "English"],
               "url": "https://armmate.am/en/contact/"
-            }
+            },
+            "potentialAction": [
+              {
+                "@type": "CommunicateAction",
+                "name": "Message on WhatsApp",
+                "recipient": { "@id": "https://armmate.am/#organization" },
+                "target": "https://wa.me/37491110799"
+              },
+              {
+                "@type": "CommunicateAction",
+                "name": "Message on Telegram",
+                "recipient": { "@id": "https://armmate.am/#organization" },
+                "target": "https://t.me/armmate_support"
+              },
+              {
+                "@type": "CommunicateAction",
+                "name": "Send an email",
+                "recipient": { "@id": "https://armmate.am/#organization" },
+                "target": "mailto:armmate.support@gmail.com"
+              }
+            ]
           },
           {
             "@type": "WebSite",

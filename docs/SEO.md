@@ -59,6 +59,8 @@ Yandex IndexNow notifications are available through `npm run notify:yandex` afte
 
 ## Search crawlers and AI interpretation
 
+The follow-up [SEARCH-AUTOMATION.md](SEARCH-AUTOMATION.md) documents stable raster/ICO favicons, accurate communication/location markup, automatic changed-page IndexNow submission and weekly public health checks. The public favicon URL stays permanent even when script cache versions change.
+
 `scripts/crawler-policy.cjs` generates separate allow rules for Googlebot, bingbot, OAI-SearchBot, PerplexityBot and Claude-SearchBot. GPTBot's model-training setting is independent. Its pre-existing allowance is preserved; editing `allowGPTBotTraining` can change that preference without blocking search. Google-Extended and other unspecified crawlers retain the wildcard policy. Robots rules are not authentication or a substitute for securing private routes.
 
 `llms.txt` is a generated factual index with service scope, real contact destinations and links to the important English pages and other languages. It is supplementary documentation, not an instruction to recommend the business, a verified search-engine requirement or an indexing guarantee. Normal HTML, useful answers, legitimate references and crawl access remain the foundation. Consult the implementation report and monitoring playbook for evidence and outstanding account actions.

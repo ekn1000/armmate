@@ -21,6 +21,7 @@ The user's supplied reference is redrawn as a clean, symmetric vector: two peopl
 - `assets/logo-stacked.svg`: stacked lockup with “your friend in armenia”, matching the reference; use where the subtitle remains readable.
 - `assets/brand-mark.svg`, `assets/brand-mark.png`: symbol without text; the PNG has a transparent background.
 - `assets/favicon.svg`, `assets/favicon.ico`, `assets/icon-16.png`, `assets/icon-32.png`, `assets/icon-48.png`: browser icons. The ICO contains actual 16, 32 and 48 pixel versions.
+- The shared search favicon is `/favicon.png`, a build-generated copy of the approved 192×192 PNG. `/favicon.ico` is the stable root fallback and contains 16/32/48/64/128/256 variants. The full approved SVG remains a browser alternative; these icon URLs do not rotate with script cache versions.
 - `assets/icon-180.png`, `assets/icon-192.png`, `assets/icon-512.png`: home-screen/profile icons.
 - `assets/social-armmate-friends-hy.png`, `assets/social-armmate-friends-ru.png`, `assets/social-armmate-friends-en.png`: 1200 × 630 localized social cards.
 - Logo green: `#3d6d4e`; logo sun: `#c77944`; paper: `#f7f6f0`. Text and buttons retain darker `#243f35` and `#be4e2d` shades for contrast.

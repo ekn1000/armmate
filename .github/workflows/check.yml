@@ -24,3 +24,33 @@ jobs:
       - run: npm run check:generated
       - run: npm run audit:site
       - run: npm test
+  discovery:
+    name: Notify search engines after publication
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: search-discovery-main
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Notify only changed public pages
+        run: npm run notify:changed
+        env:
+          INDEXNOW_BASE_COMMIT: ${{ github.event.before }}
+          INDEXNOW_HEAD_COMMIT: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: search-discovery-${{ github.sha }}
+          path: qa/indexnow-submission.json
+          if-no-files-found: warn

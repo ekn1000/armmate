@@ -1,0 +1,30 @@
+name: Public search health
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run check:live
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-search-health
+          path: qa/live-search-health.json
+          if-no-files-found: warn

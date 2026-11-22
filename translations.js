@@ -228,6 +228,11 @@ window.ARMMATE_TRANSLATIONS = {
     sourcesNote:
       "Ուղղությունների մասին տեղեկությունները ստուգված են ստորև նշված աղբյուրներով։ Աշխատաժամերը, մուտքի պայմաններն ու փոխադրումները ճշտիր այցիդ օրերի համար։",
     reviewedLabel: "Թարմացված է՝",
+    contactActionNames: {
+      whatsapp: "Գրել WhatsApp-ով",
+      telegram: "Գրել Telegram-ով",
+      email: "Գրել էլ. փոստով",
+    },
     demoLabel: "Անձնական աջակցություն Հայաստանում",
     madeWith: "Սիրով՝ Հայաստանից",
     credits: "Լուսանկարներ",
@@ -502,6 +507,11 @@ window.ARMMATE_TRANSLATIONS = {
     sourcesNote:
       "Сведения о направлениях проверены по источникам ниже. Часы работы, условия входа и транспорт уточняй на даты своей поездки.",
     reviewedLabel: "Обновлено:",
+    contactActionNames: {
+      whatsapp: "Написать в WhatsApp",
+      telegram: "Написать в Telegram",
+      email: "Написать по электронной почте",
+    },
     demoLabel: "Персональная помощь в Армении",
     madeWith: "С любовью из Армении",
     credits: "Фотографии",
@@ -778,6 +788,11 @@ window.ARMMATE_TRANSLATIONS = {
     sourcesNote:
       "Destination information was checked against the sources below. Confirm opening hours, admission arrangements and transport for your travel dates.",
     reviewedLabel: "Updated:",
+    contactActionNames: {
+      whatsapp: "Message on WhatsApp",
+      telegram: "Message on Telegram",
+      email: "Send an email",
+    },
     demoLabel: "Personal assistance in Armenia",
     madeWith: "With love, from Armenia",
     credits: "Photo credits",

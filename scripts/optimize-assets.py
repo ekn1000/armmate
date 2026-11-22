@@ -177,7 +177,7 @@ for size in [16, 32, 48, 180, 192, 512]:
     draw_mark(icon, size*4*.0625, size*4*.221, size*4*.875)
     icon.resize((size,size),Image.Resampling.LANCZOS).save(ASSETS/f'icon-{size}.png',optimize=True)
 
-Image.open(ASSETS/'icon-512.png').save(ASSETS/'favicon.ico', sizes=[(16,16),(32,32),(48,48)])
+Image.open(ASSETS/'icon-512.png').save(ASSETS/'favicon.ico', sizes=[(16,16),(32,32),(48,48),(64,64),(128,128),(256,256)])
 avatar = Image.new('RGBA', (1024,1024))
 draw_mark(avatar, 92, 244, 840)
 avatar.save(ASSETS/'brand-mark.png', optimize=True)

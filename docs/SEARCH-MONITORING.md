@@ -1,5 +1,7 @@
 # Search and conversion monitoring
 
+Public availability and crawler/favicons checks are now automated weekly through `Public search health`. Successful main-branch publication also triggers changed-page-only IndexNow notification. See [SEARCH-AUTOMATION.md](SEARCH-AUTOMATION.md) for limits and evidence, and [OWNER-NEXT-STEPS.hy.md](OWNER-NEXT-STEPS.hy.md) for the short owner checklist. These checks do not access private search reports or measure rankings.
+
 ## Current configuration
 
 | Component             | Observed state                                                                                                                                                                                      | Next action                                                                                                                                                        |

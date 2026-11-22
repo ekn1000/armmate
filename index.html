@@ -8,12 +8,6 @@
       Տուրիստների աջակցություն Հայաստանում․ անձնական ասիստենտ | արմմեյթ
     </title>
     <link
-      sizes="any"
-      rel="icon"
-      type="image/svg+xml"
-      href="assets/favicon.svg?v=friends-1"
-    />
-    <link
       type="image/webp"
       imagesizes="(max-width: 650px) calc(100vw - 40px), (max-width: 1150px) 50vw, 640px"
       imagesrcset="assets/ararat-480.webp 480w, assets/ararat-800.webp 800w, assets/ararat-1200.webp 1200w"
@@ -22,28 +16,25 @@
       as="image"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=discovery-2026-11-22" />
-    <script src="site-config.js?v=discovery-2026-11-22" defer></script>
-    <script src="translations.js?v=discovery-2026-11-22" defer></script>
-    <script src="seo.js?v=discovery-2026-11-22" defer></script>
-    <script src="app.js?v=discovery-2026-11-22" defer></script>
-    <script src="analytics.js?v=discovery-2026-11-22" defer></script>
+    <link rel="stylesheet" href="styles.css?v=discovery-2026-11-22-2" />
+    <script src="site-config.js?v=discovery-2026-11-22-2" defer></script>
+    <script src="translations.js?v=discovery-2026-11-22-2" defer></script>
+    <script src="seo.js?v=discovery-2026-11-22-2" defer></script>
+    <script src="app.js?v=discovery-2026-11-22-2" defer></script>
+    <script src="analytics.js?v=discovery-2026-11-22-2" defer></script>
+    <link type="image/png" sizes="192x192" href="/favicon.png" rel="icon" />
     <link
-      type="image/png"
-      sizes="48x48"
-      href="assets/icon-48.png?v=friends-1"
+      type="image/svg+xml"
+      sizes="any"
+      href="/assets/favicon.svg"
       rel="icon"
     />
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
     <link
       type="image/png"
       sizes="180x180"
-      href="assets/icon-180.png?v=friends-1"
+      href="/assets/icon-180.png"
       rel="apple-touch-icon"
-    />
-    <link
-      href="assets/favicon.ico?v=friends-1"
-      type="image/x-icon"
-      rel="shortcut icon"
     />
     <link
       href="assets/armenian-regular.woff2"
@@ -141,7 +132,27 @@
               "contactType": "customer service",
               "availableLanguage": ["Armenian", "Russian", "English"],
               "url": "https://armmate.am/contact/"
-            }
+            },
+            "potentialAction": [
+              {
+                "@type": "CommunicateAction",
+                "name": "Գրել WhatsApp-ով",
+                "recipient": { "@id": "https://armmate.am/#organization" },
+                "target": "https://wa.me/37491110799"
+              },
+              {
+                "@type": "CommunicateAction",
+                "name": "Գրել Telegram-ով",
+                "recipient": { "@id": "https://armmate.am/#organization" },
+                "target": "https://t.me/armmate_support"
+              },
+              {
+                "@type": "CommunicateAction",
+                "name": "Գրել էլ. փոստով",
+                "recipient": { "@id": "https://armmate.am/#organization" },
+                "target": "mailto:armmate.support@gmail.com"
+              }
+            ]
           },
           {
             "@type": "WebSite",

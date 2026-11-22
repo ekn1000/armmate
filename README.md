@@ -73,6 +73,8 @@ It also checks the complete HTML without JavaScript, canonical/hreflang consiste
 
 The 22 November implementation report is in [docs/SEO-GEO-AUDIT-2026-11-22.md](docs/SEO-GEO-AUDIT-2026-11-22.md). Search intent is mapped in [docs/SEARCH-INTENT.md](docs/SEARCH-INTENT.md); owner-managed profiles and outreach are covered by [docs/EXTERNAL-SEARCH-PLAYBOOK.md](docs/EXTERNAL-SEARCH-PLAYBOOK.md). Analytics integration and reporting are documented in [docs/SEARCH-MONITORING.md](docs/SEARCH-MONITORING.md).
 
+Follow-up automation, stable Google-compatible favicon assets and accurate contact/location markup are documented in [docs/SEARCH-AUTOMATION.md](docs/SEARCH-AUTOMATION.md). The short owner checklist is [docs/OWNER-NEXT-STEPS.hy.md](docs/OWNER-NEXT-STEPS.hy.md). A successful main-branch test run now triggers a changed-page-only IndexNow notification after checking the real deployment; a weekly public search-health workflow records availability without collecting visitor data.
+
 ## Publishing and collaboration
 
 GitHub Pages serves the `main` branch from `/`. `.nojekyll` keeps the site static. Merging or pushing reviewed changes to `main` triggers the existing Pages deployment. There is no paid hosting dependency.

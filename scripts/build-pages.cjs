@@ -52,7 +52,9 @@ function output(filename, value) {
   if (check) {
     if (
       !fs.existsSync(file) ||
-      fs.readFileSync(file, "utf8").replace(/\r\n/g, "\n") !== value
+      (Buffer.isBuffer(value)
+        ? !fs.readFileSync(file).equals(value)
+        : fs.readFileSync(file, "utf8").replace(/\r\n/g, "\n") !== value)
     )
       throw new Error(
         `Generated file is stale: ${filename}. Run npm run build.`,
@@ -182,41 +184,27 @@ async function build() {
     preload.setAttribute("imagesrcset", heroSrcset);
     preload.setAttribute("imagesizes", sizes);
     preload.setAttribute("type", "image/webp");
-    $('link[rel="icon"]').setAttribute(
-      "href",
-      prefix + "assets/favicon.svg?v=friends-1",
-    );
-    $('link[rel="icon"][type="image/svg+xml"]').setAttribute("sizes", "any");
-    let legacyIcon = $('link[rel="shortcut icon"]');
-    if (!legacyIcon) {
-      legacyIcon = document.createElement("link");
-      document.head.append(legacyIcon);
-    }
-    legacyIcon.setAttribute("rel", "shortcut icon");
-    legacyIcon.setAttribute("type", "image/x-icon");
-    legacyIcon.setAttribute("href", prefix + "assets/favicon.ico?v=friends-1");
-    for (const [rel, filename, size] of [
-      ["icon", "icon-48.png", "48x48"],
-      ["apple-touch-icon", "icon-180.png", "180x180"],
+    document
+      .querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"]')
+      .forEach((node) => node.remove());
+    // One stable, large raster favicon for Google Search, with browser fallbacks.
+    // Keep these URLs permanent; recrawling and display are Google's decisions.
+    for (const [rel, href, type, sizes] of [
+      ["icon", "/favicon.png", "image/png", "192x192"],
+      ["icon", "/assets/favicon.svg", "image/svg+xml", "any"],
+      ["shortcut icon", "/favicon.ico", "image/x-icon", null],
+      ["apple-touch-icon", "/assets/icon-180.png", "image/png", "180x180"],
     ]) {
-      let element = document.head.querySelector(
-        `link[rel="${rel}"][sizes="${size}"]`,
-      );
-      if (!element) {
-        element = document.createElement("link");
-        document.head.append(element);
-      }
+      const element = document.createElement("link");
       element.setAttribute("rel", rel);
-      element.setAttribute(
-        "href",
-        prefix + "assets/" + filename + "?v=friends-1",
-      );
-      element.setAttribute("sizes", size);
-      element.setAttribute("type", "image/png");
+      element.setAttribute("href", href);
+      if (sizes) element.setAttribute("sizes", sizes);
+      element.setAttribute("type", type);
+      document.head.append(element);
     }
     $('link[rel="stylesheet"]').setAttribute(
       "href",
-      prefix + "styles.css?v=discovery-2026-11-22",
+      prefix + "styles.css?v=" + seo.assetVersion,
     );
     if (!$('script[src*="seo.js"]')) {
       const script = document.createElement("script");
@@ -234,12 +222,17 @@ async function build() {
       );
     $('script[src*="app.js"]').setAttribute(
       "src",
-      prefix + "app.js?v=discovery-2026-11-22",
+      prefix + "app.js?v=" + seo.assetVersion,
     );
-    for (const file of ["translations.js", "site-config.js", "seo.js"]) {
+    for (const file of [
+      "translations.js",
+      "site-config.js",
+      "seo.js",
+      "analytics.js",
+    ]) {
       $(`script[src*="${file}"]`).setAttribute(
         "src",
-        prefix + file + "?v=discovery-2026-11-22",
+        prefix + file + "?v=" + seo.assetVersion,
       );
     }
     document
@@ -297,6 +290,11 @@ async function build() {
     })
     .join("\n")}\n</urlset>\n`;
   output("sitemap.xml", sitemap);
+  output(
+    "favicon.png",
+    fs.readFileSync(path.join(root, "assets/icon-192.png")),
+  );
+  output("favicon.ico", fs.readFileSync(path.join(root, "assets/favicon.ico")));
   output("robots.txt", crawlerPolicy.renderRobots(seo.baseUrl));
   const allContent = require("./search-content.cjs");
   const guideContent = require("./guide-content.cjs");

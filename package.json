@@ -13,7 +13,10 @@
     "check:generated": "node scripts/build-pages.cjs --check",
     "audit:site": "node scripts/audit-site.cjs",
     "measure:pages": "node scripts/measure-pages.cjs",
-    "notify:yandex": "node scripts/notify-yandex.cjs"
+    "notify:yandex": "node scripts/notify-yandex.cjs",
+    "notify:indexnow": "node scripts/notify-indexnow.cjs",
+    "notify:changed": "node scripts/notify-indexnow.cjs --changed",
+    "check:live": "node scripts/check-live-search.cjs"
   },
   "devDependencies": {
     "@playwright/test": "1.65.1",

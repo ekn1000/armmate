@@ -4,6 +4,7 @@ const path = require("node:path");
 const { parseHTML, DOMParser } = require("linkedom");
 const seo = require("../seo.js");
 const content = require("./search-content.cjs");
+const contacts = require("../site-config.js");
 const root = path.resolve(__dirname, "..");
 const origin = new URL(seo.baseUrl).origin;
 const errors = [];
@@ -83,6 +84,11 @@ for (const [url, { family, language, document }] of pages) {
   check(
     $('meta[name="twitter:card"]')?.content === "summary_large_image",
     prefix + "missing Twitter card",
+  );
+  check(
+    $('link[rel="icon"][type="image/png"][sizes="192x192"]')?.href ===
+      "/favicon.png",
+    prefix + "missing stable Google raster favicon",
   );
   check(
     $('meta[property="og:image"]')?.content ===
@@ -175,6 +181,12 @@ for (const [url, { family, language, document }] of pages) {
   );
   const organization = graph.find((item) => item["@type"] === "Organization");
   check(
+    JSON.stringify(
+      organization?.potentialAction?.map((action) => action.target),
+    ) === JSON.stringify(contacts.channels.map((channel) => channel.href)),
+    prefix + "communication actions differ from the real contacts",
+  );
+  check(
     organization?.email === "armmate.support@gmail.com",
     prefix + "incorrect organization email",
   );
@@ -226,6 +238,11 @@ for (const [url, { family, language, document }] of pages) {
   graph.forEach(references);
   if (seo.guideFamilies.includes(family)) {
     const article = graph.find((item) => item["@type"] === "Article");
+    check(
+      JSON.stringify(article?.about?.map((place) => place.name)) ===
+        JSON.stringify(seo.guidePlaces[family]),
+      prefix + "guide subject locations are incorrect",
+    );
     check(
       article?.headline === content[family][language].h1,
       prefix + "article headline mismatch",

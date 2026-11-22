@@ -61,6 +61,16 @@
     },
   };
   const languages = Object.keys(paths);
+  const assetVersion = "discovery-2026-11-22-2";
+  const guidePlaces = {
+    planning: ["Armenia"],
+    yerevan: ["Yerevan"],
+    garni: ["Garni", "Geghard"],
+    sevan: ["Lake Sevan"],
+    dilijan: ["Dilijan"],
+    gyumri: ["Gyumri"],
+    khorvirap: ["Khor Virap"],
+  };
   const guideFamilies = [
     "planning",
     "yerevan",
@@ -112,6 +122,12 @@
             availableLanguage: ["Armenian", "Russian", "English"],
             url: contentPageUrl("contact", language),
           },
+          potentialAction: contacts.channels.map((contact) => ({
+            "@type": "CommunicateAction",
+            name: copy.contactActionNames[contact.id],
+            recipient: { "@id": organization },
+            target: contact.href,
+          })),
         },
         {
           "@type": "WebSite",
@@ -188,6 +204,18 @@
                 image:
                   baseUrl + `assets/social-armmate-friends-${language}.png`,
                 citation: (copy.sources || []).map((source) => source.url),
+                about: guidePlaces[family].map((name) =>
+                  name === "Armenia"
+                    ? { "@type": "Country", name }
+                    : {
+                        "@type": "Place",
+                        name,
+                        containedInPlace: {
+                          "@type": "Country",
+                          name: "Armenia",
+                        },
+                      },
+                ),
               },
             ]
           : []),
@@ -316,6 +344,8 @@
     contentPaths,
     contentPageUrl,
     languages,
+    assetVersion,
+    guidePlaces,
     guideFamilies,
     updated,
     pageUrl,
