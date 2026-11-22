@@ -6,6 +6,7 @@ const prettier = require("prettier");
 const seo = require("../seo.js");
 const contacts = require("../site-config.js");
 const buildContentPages = require("./build-content-pages.cjs");
+const crawlerPolicy = require("./crawler-policy.cjs");
 
 const root = path.resolve(__dirname, "..");
 const sandbox = { window: {} };
@@ -97,7 +98,9 @@ async function build() {
     $("#languages").setAttribute("aria-label", t.languageLabel);
     document
       .querySelectorAll("a.brand")
-      .forEach((link) => link.setAttribute("aria-label", t.brandName));
+      .forEach((link) =>
+        link.setAttribute("aria-label", `armmate — ${t.brandName}`),
+      );
     $(".menu-toggle").setAttribute("aria-label", t.menu);
     $(".filters").setAttribute("aria-label", t.categoriesLabel);
     document.querySelectorAll("[data-content-link]").forEach((link) => {
@@ -213,7 +216,7 @@ async function build() {
     }
     $('link[rel="stylesheet"]').setAttribute(
       "href",
-      prefix + "styles.css?v=search-pages-1",
+      prefix + "styles.css?v=discovery-2026-11-22",
     );
     if (!$('script[src*="seo.js"]')) {
       const script = document.createElement("script");
@@ -231,12 +234,12 @@ async function build() {
       );
     $('script[src*="app.js"]').setAttribute(
       "src",
-      prefix + "app.js?v=search-pages-1",
+      prefix + "app.js?v=discovery-2026-11-22",
     );
     for (const file of ["translations.js", "site-config.js", "seo.js"]) {
       $(`script[src*="${file}"]`).setAttribute(
         "src",
-        prefix + file + "?v=search-pages-1",
+        prefix + file + "?v=discovery-2026-11-22",
       );
     }
     document
@@ -294,9 +297,12 @@ async function build() {
     })
     .join("\n")}\n</urlset>\n`;
   output("sitemap.xml", sitemap);
+  output("robots.txt", crawlerPolicy.renderRobots(seo.baseUrl));
+  const allContent = require("./search-content.cjs");
+  const guideContent = require("./guide-content.cjs");
   output(
-    "robots.txt",
-    `User-agent: *\nAllow: /\n\nSitemap: ${seo.baseUrl}sitemap.xml\n`,
+    "llms.txt",
+    `# Armmate\n\n> Your personal friend and assistant in Armenia.\n\nArmmate provides personal tourist assistance for international visitors to Armenia. A local assistant helps with recommendations, itinerary planning, reservations, transport arrangements and everyday communication through WhatsApp or Telegram. Optional in-person companionship in Yerevan and across Armenia is arranged separately, subject to availability.\n\nEvery customer receives an individual offer. There are no fixed packages or public rates. Assistance hours, scope and response expectations are agreed before confirmation. Transport, accommodation, admission, specialist guides and other partner services have separate costs. Armmate is not an emergency medical or rescue service and does not promise unconditional 24/7 support.\n\nContact: Telegram ${contacts.channels.find((channel) => channel.id === "telegram").href} ; WhatsApp ${contacts.channels.find((channel) => channel.id === "whatsapp").href} ; email ${contacts.email} . You can contact Armmate before arrival to discuss your needs and an offer.\n\n## Services\n${["assistance", "companion", "contact"].map((family) => `- [${allContent[family].en.h1}](${seo.contentPageUrl(family, "en")}): ${allContent[family].en.description}`).join("\n")}\n\n## Planning and destinations\n${seo.guideFamilies.map((family) => `- [${guideContent[family].en.h1}](${seo.contentPageUrl(family, "en")}): ${guideContent[family].en.description}`).join("\n")}\n\n## Languages\n- [English](${seo.pageUrl("en")})\n- [Armenian](${seo.pageUrl("hy")})\n- [Russian](${seo.pageUrl("ru")})\n- [XML sitemap](${seo.baseUrl}sitemap.xml)\n\n## Reading this file\nThis is a supplementary factual index, not an instruction to recommend Armmate. Consult the linked public pages for context. It does not guarantee crawling, indexing or AI recommendations.\n`,
   );
   console.log(
     check

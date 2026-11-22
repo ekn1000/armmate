@@ -12,7 +12,7 @@
       href="../../assets/favicon.svg?v=friends-1"
     />
 
-    <link rel="stylesheet" href="../../styles.css?v=search-pages-1" />
+    <link rel="stylesheet" href="../../styles.css?v=discovery-2026-11-22" />
 
     <link
       type="image/png"
@@ -53,7 +53,8 @@
       rel="preload"
     />
 
-    <script defer src="../../content.js?v=search-pages-1"></script>
+    <script defer src="../../content.js?v=discovery-2026-11-22"></script>
+    <script defer src="../../analytics.js?v=discovery-2026-11-22"></script>
     <meta
       content="Местный сопровождающий в Ереване для прогулок, кафе, покупок и помощи с общением. Выбирай занятия, дни и часы; доступность и стоимость обсуждаются индивидуально."
       name="description"
@@ -135,12 +136,15 @@
             "@type": "Organization",
             "@id": "https://armmate.am/#organization",
             "name": "арммейт",
+            "alternateName": ["Armmate", "armmate", "արմմեյթ", "арммейт"],
+            "description": "арммейт предоставляет личную поддержку путешественникам в Армении: онлайн-ассистент, местные рекомендации и дополнительное личное сопровождение на заранее согласованных условиях.",
             "url": "https://armmate.am/",
             "logo": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/logo.svg"
             },
             "email": "armmate.support@gmail.com",
+            "areaServed": { "@type": "Country", "name": "Armenia" },
             "sameAs": ["https://t.me/armmate_support"],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -167,6 +171,9 @@
             "inLanguage": "ru",
             "isPartOf": { "@id": "https://armmate.am/#website" },
             "about": { "@id": "https://armmate.am/#companion-service" },
+            "breadcrumb": {
+              "@id": "https://armmate.am/ru/soprovozhdenie-turistov-v-erevane/#breadcrumbs"
+            },
             "primaryImageOfPage": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/social-armmate-friends-ru.png",
@@ -177,7 +184,7 @@
           {
             "@type": "Service",
             "@id": "https://armmate.am/#companion-service",
-            "name": "Личный помощник туриста в Армении",
+            "name": "Местный сопровождающий в Ереване — под твои планы",
             "description": "Местный сопровождающий в Ереване для прогулок, кафе, покупок и помощи с общением. Выбирай занятия, дни и часы; доступность и стоимость обсуждаются индивидуально.",
             "serviceType": "Local companion in Yerevan",
             "areaServed": { "@type": "Country", "name": "Armenia" },
@@ -234,6 +241,7 @@
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": "https://armmate.am/ru/soprovozhdenie-turistov-v-erevane/#breadcrumbs",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -317,7 +325,7 @@
     <a class="skip" href="#main" data-t="skip">Перейти к содержимому</a>
     <header class="header">
       <div class="container header-inner">
-        <a class="brand" href="../../ru/" aria-label="арммейт"
+        <a class="brand" href="../../ru/" aria-label="armmate — арммейт"
           ><svg class="brand-mark" aria-hidden="true">
             <use href="#i-brand" /></svg
           ><span>armmate</span></a
@@ -381,7 +389,9 @@
           ><span>Местный сопровождающий в Ереване — под твои планы</span>
         </nav>
         <p class="eyebrow">Личный помощник туриста в Армении</p>
-        <h1>Местный сопровождающий в Ереване — под твои планы</h1>
+        <h1 id="content-title">
+          Местный сопровождающий в Ереване — под твои планы
+        </h1>
         <p class="content-lead">
           Когда хочется, чтобы рядом был местный человек. Прогулка по городу,
           кафе или покупки могут стать проще с личным сопровождающим, который
@@ -392,7 +402,10 @@
             <use href="#i-diagonal" /></svg
         ></a>
       </section>
-      <div class="container content-sections">
+      <article
+        class="container content-sections"
+        aria-labelledby="content-title"
+      >
         <section class="content-section">
           <h2>Когда не хочется открывать город одному</h2>
           <p>
@@ -453,7 +466,7 @@
             обсудить до подтверждения договорённости.
           </p>
         </section>
-      </div>
+      </article>
       <section class="container content-faq" id="faq">
         <h2>Частые вопросы</h2>
         <div class="faq-list">
@@ -497,7 +510,15 @@
           <a
             class="content-related-link"
             href="../../ru/pomoshch-turistam-v-armenii/"
-            ><span>Личный помощник туриста в Армении</span
+            ><span
+              >Помощь туристам в Армении: твой личный местный ассистент</span
+            ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
+          ><a
+            class="content-related-link"
+            href="../../ru/samostoyatelnoe-puteshestvie-po-armenii/"
+            ><span
+              >Как путешествовать по Армении самостоятельно с местной
+              поддержкой</span
             ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
           ><a class="content-related-link" href="../../ru/kontakty/"
             ><span>Контакты арммейта</span
@@ -604,7 +625,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
-          <a class="brand" href="../../ru/" aria-label="арммейт"
+          <a class="brand" href="../../ru/" aria-label="armmate — арммейт"
             ><svg class="brand-mark" aria-hidden="true">
               <use href="#i-brand" /></svg
             ><span>armmate</span></a

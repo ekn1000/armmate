@@ -123,6 +123,21 @@ for name in ['manrope-regular', 'manrope-bold', 'armenian-regular', 'armenian-bo
     font.flavor = 'woff2'
     font.save(ASSETS / (name + '.woff2'))
 
+# The Armenian language label on EN/RU pages needs only these three glyphs.
+# Preserve the full Armenian faces for Armenian prose and language switching.
+navigation_font = TTFont(ASSETS / 'armenian-bold.ttf', recalcTimestamp=False)
+navigation_subset = Subsetter(options=Options())
+navigation_subset.populate(text='ՀԱՅ')
+navigation_subset.subset(navigation_font)
+navigation_font.flavor = 'woff2'
+navigation_font.save(ASSETS / 'armenian-navigation.woff2')
+greeting_font = TTFont(ASSETS / 'armenian-regular.ttf', recalcTimestamp=False)
+greeting_subset = Subsetter(options=Options())
+greeting_subset.populate(text='բարև')
+greeting_subset.subset(greeting_font)
+greeting_font.flavor = 'woff2'
+greeting_font.save(ASSETS / 'armenian-greeting.woff2')
+
 for name in ['ararat', 'yerevan', 'garni', 'dilijan']:
     image = Image.open(ASSETS / (name + '.webp')).convert('RGB')
     widths = [480, 800, 1200] if name == 'ararat' else [480, 800]

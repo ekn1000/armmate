@@ -18,25 +18,29 @@ python scripts/serve.py
 
 Open http://127.0.0.1:4187. Armenian is at `/`, Russian at `/ru/`, and English at `/en/`. Each URL contains the complete translated HTML, including without JavaScript. Legacy `?lang=hy|ru|en` links still work with JavaScript. The original `#plan` anchor leads to direct contact links.
 
-The sitemap also includes localized pages for online travel assistance, personal companionship in Yerevan and contact details: 12 canonical pages in total. Routes live in `seo.js`; the original service content is in `scripts/search-content.cjs`.
+The sitemap includes 33 canonical pages: three homepages, nine service/contact pages, three independent-travel planning guides and 18 destination guides. Routes live in `seo.js`; service content is in `scripts/search-content.cjs` and guide content in `scripts/guide-content.cjs`.
 
 ## Files
 
-| File                                | Purpose                                                          |
-| ----------------------------------- | ---------------------------------------------------------------- |
-| `index.html`                        | Shared structure and fully rendered Armenian content             |
-| `ru/index.html`, `en/index.html`    | Generated Russian and English pages                              |
-| `styles.css`                        | Responsive layout, brand styling and accessibility states        |
-| `translations.js`                   | Localized homepage content and shared interface labels           |
-| `app.js`                            | Language switching, filters and experience/credit dialogs        |
-| `site-config.js`                    | Public WhatsApp, Telegram and email destinations                 |
-| `seo.js`, `scripts/build-pages.cjs` | Shared metadata/schema and static language-page generator        |
-| `scripts/search-content.cjs`        | Localized assistance, companion and contact page content         |
-| `scripts/build-content-pages.cjs`   | Static generation for the nine service/contact pages             |
-| `content.js`                        | Navigation and floating contacts on service/contact pages        |
-| `sitemap.xml`, `robots.txt`         | Canonical URL discovery on armmate.am                            |
-| `assets/`                           | Local photos, fonts, favicon and attribution                     |
-| `tests/`                            | Browser tests for business rules, direct contacts and navigation |
+| File                                    | Purpose                                                           |
+| --------------------------------------- | ----------------------------------------------------------------- |
+| `index.html`                            | Shared structure and fully rendered Armenian content              |
+| `ru/index.html`, `en/index.html`        | Generated Russian and English pages                               |
+| `styles.css`                            | Responsive layout, brand styling and accessibility states         |
+| `translations.js`                       | Localized homepage content and shared interface labels            |
+| `app.js`                                | Language switching, filters and experience/credit dialogs         |
+| `site-config.js`                        | Public WhatsApp, Telegram and email destinations                  |
+| `seo.js`, `scripts/build-pages.cjs`     | Shared metadata/schema and static language-page generator         |
+| `scripts/search-content.cjs`            | Localized assistance, companion and contact page content          |
+| `scripts/guide-content.cjs`             | Original planning and destination guides in all three languages   |
+| `scripts/build-content-pages.cjs`       | Static generation for service, contact and guide pages            |
+| `content.js`                            | Navigation and floating contacts on service/contact pages         |
+| `analytics.js`                          | Local contact-click event; no analytics collection enabled        |
+| `scripts/audit-site.cjs`                | Full-site metadata, graph, links, language and content validation |
+| `scripts/crawler-policy.cjs`            | Independent search and GPTBot training preferences                |
+| `sitemap.xml`, `robots.txt`, `llms.txt` | Canonical discovery and supplementary machine-readable index      |
+| `assets/`                               | Local photos, fonts, favicon and attribution                      |
+| `tests/`                                | Browser tests for business rules, direct contacts and navigation  |
 
 ## Direct business contacts
 
@@ -59,12 +63,15 @@ npm ci
 npx playwright install chromium
 npm test
 npm run check:generated
+npm run audit:site
 npm run check:format
 ```
 
 The browser suite checks all three translations, pricing rules, direct contact links, experience-to-contact navigation, mobile navigation, responsive layout and photo credits. It does not contact messenger recipients. Use `npm run format` after edits.
 
 It also checks the complete HTML without JavaScript, canonical/hreflang consistency, JSON-LD against visible FAQs, legacy language URLs, sitemap destinations, optimized fonts and the noindex error page. After editing layout, translations, contacts or SEO metadata, run `npm run build` and commit the generated pages. See [docs/SEO.md](docs/SEO.md) for details and Search Console setup that remains outside this repository.
+
+The 22 November implementation report is in [docs/SEO-GEO-AUDIT-2026-11-22.md](docs/SEO-GEO-AUDIT-2026-11-22.md). Search intent is mapped in [docs/SEARCH-INTENT.md](docs/SEARCH-INTENT.md); owner-managed profiles and outreach are covered by [docs/EXTERNAL-SEARCH-PLAYBOOK.md](docs/EXTERNAL-SEARCH-PLAYBOOK.md). Analytics integration and reporting are documented in [docs/SEARCH-MONITORING.md](docs/SEARCH-MONITORING.md).
 
 ## Publishing and collaboration
 

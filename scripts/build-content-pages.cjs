@@ -47,20 +47,40 @@ module.exports = async function buildContentPages({
             `<section class="content-section"><h2>${escape(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${escape(paragraph)}</p>`).join("")}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escape(item)}</li>`).join("")}</ul>` : ""}</section>`,
         )
         .join("");
-      const related = Object.keys(seo.contentPaths)
+      const relatedFamilies = (
+        seo.guideFamilies.includes(family)
+          ? ["planning", "assistance", "companion", "contact"]
+          : ["assistance", "companion", "planning", "contact"]
+      )
         .filter((item) => item !== family)
+        .slice(0, 3);
+      const related = relatedFamilies
         .map(
           (item) =>
-            `<a class="content-related-link" href="${prefix + seo.contentPaths[item][language]}"><span>${escape(t["guide" + item[0].toUpperCase() + item.slice(1) + "Title"])}</span>${arrow}</a>`,
+            `<a class="content-related-link" href="${prefix + seo.contentPaths[item][language]}"><span>${escape(content[item][language].h1)}</span>${arrow}</a>`,
         )
         .join("");
       const hero = `<section class="container content-hero"><nav class="content-breadcrumbs" aria-label="${escape(t.breadcrumbLabel)}"><a href="${home}">${escape(t.homeLabel)}</a><span aria-hidden="true">/</span><span>${escape(copy.h1)}</span></nav><p class="eyebrow">${escape(t.heroLabel)}</p><h1>${escape(copy.h1)}</h1><p class="content-lead">${escape(copy.lead)}</p>${family !== "contact" ? `<a class="button" href="#plan">${escape(t.contactCta)}${arrow}</a>` : ""}</section>`;
-      const article = `<div class="container content-sections">${sections}</div><section class="container content-faq" id="faq"><h2>${escape(t.faqHeading)}</h2><div class="faq-list">${copy.faq.map(([question, answer]) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join("")}</div></section><section class="container content-related"><h2>${escape(t.relatedTitle)}</h2><div>${related}</div></section>`;
+      const destinations =
+        family === "planning"
+          ? `<section class="container content-related"><h2>${escape(t.destinationGuidesTitle)}</h2><div>${seo.guideFamilies
+              .filter((item) => item !== "planning")
+              .map(
+                (item) =>
+                  `<a class="content-related-link content-destination-link" href="${prefix + seo.contentPaths[item][language]}"><span>${escape(content[item][language].h1)}</span>${arrow}</a>`,
+              )
+              .join("")}</div></section>`
+          : "";
+      const sources = copy.sources
+        ? `<aside class="container content-sources" aria-labelledby="sources-title"><h2 id="sources-title">${escape(t.sourcesTitle)}</h2><p>${escape(t.sourcesNote)}</p><ul>${copy.sources.map((source) => `<li><a href="${escape(source.url)}">${escape(source.label)}</a></li>`).join("")}</ul><p>${escape(t.reviewedLabel)} <time datetime="${seo.updated}">${seo.updated}</time></p></aside>`
+        : "";
+      const article = `<article class="container content-sections" aria-labelledby="content-title">${sections}</article>${destinations}<section class="container content-faq" id="faq"><h2>${escape(t.faqHeading)}</h2><div class="faq-list">${copy.faq.map(([question, answer]) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join("")}</div></section>${sources}<section class="container content-related"><h2>${escape(t.relatedTitle)}</h2><div>${related}</div></section>`;
       $("main").innerHTML =
         family === "contact"
           ? hero + contactSection.outerHTML + article
           : hero + article + contactSection.outerHTML;
       document.body.classList.add("content-page");
+      $("h1").id = "content-title";
       document.body.setAttribute("data-content-family", family);
       if (family === "contact") $(".content-hero .eyebrow").remove();
       $("#detail-dialog").remove();
@@ -71,9 +91,16 @@ module.exports = async function buildContentPages({
         .forEach((node) => node.remove());
       document.querySelectorAll("script[src]").forEach((node) => node.remove());
       const script = document.createElement("script");
-      script.setAttribute("src", prefix + "content.js?v=search-pages-1");
+      script.setAttribute("src", prefix + "content.js?v=discovery-2026-11-22");
       script.setAttribute("defer", "");
       document.head.append(script);
+      const analytics = document.createElement("script");
+      analytics.setAttribute(
+        "src",
+        prefix + "analytics.js?v=discovery-2026-11-22",
+      );
+      analytics.setAttribute("defer", "");
+      document.head.append(analytics);
       document
         .querySelectorAll("a.brand")
         .forEach((link) => link.setAttribute("href", home));
@@ -91,7 +118,7 @@ module.exports = async function buildContentPages({
         const attribute = node.hasAttribute("src") ? "src" : "href";
         const raw = node.getAttribute(attribute);
         if (/^(https?:|data:|#)/.test(raw)) return;
-        if (node === script) return;
+        if (node === script || node === analytics) return;
         const resource = new URL(raw, seo.pageUrl(language));
         if (
           /^\/assets\//.test(resource.pathname) ||

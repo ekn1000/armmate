@@ -12,7 +12,7 @@
       href="../../assets/favicon.svg?v=friends-1"
     />
 
-    <link rel="stylesheet" href="../../styles.css?v=search-pages-1" />
+    <link rel="stylesheet" href="../../styles.css?v=discovery-2026-11-22" />
 
     <link
       type="image/png"
@@ -53,7 +53,8 @@
       rel="preload"
     />
 
-    <script defer src="../../content.js?v=search-pages-1"></script>
+    <script defer src="../../content.js?v=discovery-2026-11-22"></script>
+    <script defer src="../../analytics.js?v=discovery-2026-11-22"></script>
     <meta
       content="Explore Yerevan with a local companion for walks, cafés, shopping and practical communication. Choose your activities and hours; availability and pricing are agreed individually."
       name="description"
@@ -135,12 +136,15 @@
             "@type": "Organization",
             "@id": "https://armmate.am/#organization",
             "name": "ARMMATE",
+            "alternateName": ["Armmate", "armmate", "արմմեյթ", "арммейт"],
+            "description": "ARMMATE is a personal tourist assistance service in Armenia, with a local assistant on WhatsApp or Telegram and optional in-person companionship. Support, availability and individual pricing are agreed before confirmation.",
             "url": "https://armmate.am/",
             "logo": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/logo.svg"
             },
             "email": "armmate.support@gmail.com",
+            "areaServed": { "@type": "Country", "name": "Armenia" },
             "sameAs": ["https://t.me/armmate_support"],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -167,6 +171,9 @@
             "inLanguage": "en",
             "isPartOf": { "@id": "https://armmate.am/#website" },
             "about": { "@id": "https://armmate.am/#companion-service" },
+            "breadcrumb": {
+              "@id": "https://armmate.am/en/local-companion-yerevan/#breadcrumbs"
+            },
             "primaryImageOfPage": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/social-armmate-friends-en.png",
@@ -177,7 +184,7 @@
           {
             "@type": "Service",
             "@id": "https://armmate.am/#companion-service",
-            "name": "Personal travel assistant and local support in Armenia",
+            "name": "A local companion in Yerevan, around your own plans",
             "description": "Explore Yerevan with a local companion for walks, cafés, shopping and practical communication. Choose your activities and hours; availability and pricing are agreed individually.",
             "serviceType": "Local companion in Yerevan",
             "areaServed": { "@type": "Country", "name": "Armenia" },
@@ -234,6 +241,7 @@
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": "https://armmate.am/en/local-companion-yerevan/#breadcrumbs",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -317,7 +325,7 @@
     <a class="skip" href="#main" data-t="skip">Skip to content</a>
     <header class="header">
       <div class="container header-inner">
-        <a class="brand" href="../../en/" aria-label="ARMMATE"
+        <a class="brand" href="../../en/" aria-label="armmate — ARMMATE"
           ><svg class="brand-mark" aria-hidden="true">
             <use href="#i-brand" /></svg
           ><span>armmate</span></a
@@ -388,7 +396,9 @@
         <p class="eyebrow">
           Personal travel assistant and local support in Armenia
         </p>
-        <h1>A local companion in Yerevan, around your own plans</h1>
+        <h1 id="content-title">
+          A local companion in Yerevan, around your own plans
+        </h1>
         <p class="content-lead">
           For the moments when you would like a local person beside you. Explore
           the city, visit a café or go shopping with someone who can help you
@@ -399,7 +409,10 @@
             <use href="#i-diagonal" /></svg
         ></a>
       </section>
-      <div class="container content-sections">
+      <article
+        class="container content-sections"
+        aria-labelledby="content-title"
+      >
         <section class="content-section">
           <h2>When you would rather not explore alone</h2>
           <p>
@@ -460,7 +473,7 @@
             discussed before confirming the arrangement.
           </p>
         </section>
-      </div>
+      </article>
       <section class="container content-faq" id="faq">
         <h2>Frequently asked questions</h2>
         <div class="faq-list">
@@ -503,7 +516,12 @@
           <a
             class="content-related-link"
             href="../../en/tourist-assistance-armenia/"
-            ><span>Personal travel assistant in Armenia</span
+            ><span>A personal travel assistant for your visit to Armenia</span
+            ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
+          ><a
+            class="content-related-link"
+            href="../../en/visit-armenia-without-tour-guide/"
+            ><span>How to visit Armenia independently, with local support</span
             ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
           ><a class="content-related-link" href="../../en/contact/"
             ><span>Contact ARMMATE</span
@@ -608,7 +626,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
-          <a class="brand" href="../../en/" aria-label="ARMMATE"
+          <a class="brand" href="../../en/" aria-label="armmate — ARMMATE"
             ><svg class="brand-mark" aria-hidden="true">
               <use href="#i-brand" /></svg
             ><span>armmate</span></a

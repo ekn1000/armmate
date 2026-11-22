@@ -20,7 +20,10 @@ for (const lang of seo.languages) {
     await expect(page).toHaveTitle(new RegExp(brandName));
     await expect(page.locator(".brand")).toHaveCount(2);
     for (const brand of await page.locator(".brand").all()) {
-      await expect(brand).toHaveAttribute("aria-label", brandName);
+      await expect(brand).toHaveAttribute(
+        "aria-label",
+        `armmate — ${brandName}`,
+      );
       await expect(brand).toContainText("armmate");
       await expect(brand.locator('use[href="#i-brand"]')).toHaveCount(1);
     }

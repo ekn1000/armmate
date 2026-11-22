@@ -99,7 +99,9 @@ function setLanguage(next, updateUrl = true) {
   });
   $("#navigation").setAttribute("aria-label", t.mainNav);
   $("#languages").setAttribute("aria-label", t.languageLabel);
-  $$("a.brand").forEach((link) => link.setAttribute("aria-label", t.brandName));
+  $$("a.brand").forEach((link) =>
+    link.setAttribute("aria-label", `armmate — ${t.brandName}`),
+  );
   $(".menu-toggle").setAttribute("aria-label", t.menu);
   $(".filters").setAttribute("aria-label", t.categoriesLabel);
   $$("[data-content-link]").forEach((link) => {

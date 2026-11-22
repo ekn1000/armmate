@@ -12,7 +12,7 @@
       href="../assets/favicon.svg?v=friends-1"
     />
 
-    <link rel="stylesheet" href="../styles.css?v=search-pages-1" />
+    <link rel="stylesheet" href="../styles.css?v=discovery-2026-11-22" />
 
     <link
       type="image/png"
@@ -53,7 +53,8 @@
       rel="preload"
     />
 
-    <script defer src="../content.js?v=search-pages-1"></script>
+    <script defer src="../content.js?v=discovery-2026-11-22"></script>
+    <script defer src="../analytics.js?v=discovery-2026-11-22"></script>
     <meta
       content="Տեղացի ուղեկից Երևանում՝ զբոսանքի, գնումների, սրճարանների և հաղորդակցման համար։ Դու ընտրում ես օրերը, ժամերն ու զբաղմունքները․ արժեքը համաձայնեցվում է անհատապես։"
       name="description"
@@ -129,12 +130,15 @@
             "@type": "Organization",
             "@id": "https://armmate.am/#organization",
             "name": "արմմեյթ",
+            "alternateName": ["Armmate", "armmate", "արմմեյթ", "арммейт"],
+            "description": "արմմեյթը անձնական ճանապարհորդական աջակցություն է տրամադրում Հայաստան այցելողներին՝ առցանց ասիստենտ, տեղական խորհուրդներ և ընտրովի անձնական ուղեկցում՝ նախապես համաձայնեցված պայմաններով։",
             "url": "https://armmate.am/",
             "logo": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/logo.svg"
             },
             "email": "armmate.support@gmail.com",
+            "areaServed": { "@type": "Country", "name": "Armenia" },
             "sameAs": ["https://t.me/armmate_support"],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -161,6 +165,9 @@
             "inLanguage": "hy",
             "isPartOf": { "@id": "https://armmate.am/#website" },
             "about": { "@id": "https://armmate.am/#companion-service" },
+            "breadcrumb": {
+              "@id": "https://armmate.am/local-companion/#breadcrumbs"
+            },
             "primaryImageOfPage": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/social-armmate-friends-hy.png",
@@ -171,7 +178,7 @@
           {
             "@type": "Service",
             "@id": "https://armmate.am/#companion-service",
-            "name": "Անձնական ասիստենտ և աջակցություն տուրիստներին Հայաստանում",
+            "name": "Տեղացի ուղեկից Երևանում՝ քո ծրագրով",
             "description": "Տեղացի ուղեկից Երևանում՝ զբոսանքի, գնումների, սրճարանների և հաղորդակցման համար։ Դու ընտրում ես օրերը, ժամերն ու զբաղմունքները․ արժեքը համաձայնեցվում է անհատապես։",
             "serviceType": "Local companion in Yerevan",
             "areaServed": { "@type": "Country", "name": "Armenia" },
@@ -228,6 +235,7 @@
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": "https://armmate.am/local-companion/#breadcrumbs",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -311,7 +319,7 @@
     <a class="skip" href="#main" data-t="skip">Անցնել բովանդակությանը</a>
     <header class="header">
       <div class="container header-inner">
-        <a class="brand" href="../" aria-label="արմմեյթ"
+        <a class="brand" href="../" aria-label="armmate — արմմեյթ"
           ><svg class="brand-mark" aria-hidden="true">
             <use href="#i-brand" /></svg
           ><span>armmate</span></a
@@ -375,7 +383,7 @@
         <p class="eyebrow">
           Անձնական ասիստենտ և աջակցություն տուրիստներին Հայաստանում
         </p>
-        <h1>Տեղացի ուղեկից Երևանում՝ քո ծրագրով</h1>
+        <h1 id="content-title">Տեղացի ուղեկից Երևանում՝ քո ծրագրով</h1>
         <p class="content-lead">
           Երբ պարզապես ուզում ես, որ կողքիդ տեղացի մարդ լինի։ Քաղաքում զբոսանքը,
           սրճարանը կամ գնումները կարող են ավելի հարմարավետ լինել մեկի հետ, ով
@@ -386,7 +394,10 @@
             <use href="#i-diagonal" /></svg
         ></a>
       </section>
-      <div class="container content-sections">
+      <article
+        class="container content-sections"
+        aria-labelledby="content-title"
+      >
         <section class="content-section">
           <h2>Աջակցություն, երբ չես ուզում մենակ բացահայտել</h2>
           <p>
@@ -450,7 +461,7 @@
             հաստատումը։
           </p>
         </section>
-      </div>
+      </article>
       <section class="container content-faq" id="faq">
         <h2>Հաճախ տրվող հարցեր</h2>
         <div class="faq-list">
@@ -490,7 +501,13 @@
         <h2>Իմացիր ավելին</h2>
         <div>
           <a class="content-related-link" href="../tourist-assistance/"
-            ><span>Անձնական ասիստենտ Հայաստանում</span
+            ><span
+              >Անձնական ասիստենտ և աջակցություն տուրիստներին Հայաստանում</span
+            ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
+          ><a class="content-related-link" href="../travel-planning/"
+            ><span
+              >Ինչպես ճանապարհորդել Հայաստանում ինքնուրույն՝ տեղական
+              աջակցությամբ</span
             ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
           ><a class="content-related-link" href="../contact/"
             ><span>Կապ արմմեյթի հետ</span
@@ -593,7 +610,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
-          <a class="brand" href="../" aria-label="արմմեյթ"
+          <a class="brand" href="../" aria-label="armmate — արմմեյթ"
             ><svg class="brand-mark" aria-hidden="true">
               <use href="#i-brand" /></svg
             ><span>armmate</span></a

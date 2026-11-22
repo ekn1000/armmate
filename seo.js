@@ -24,9 +24,53 @@
       ru: "ru/kontakty/",
       en: "en/contact/",
     },
+    planning: {
+      hy: "travel-planning/",
+      ru: "ru/samostoyatelnoe-puteshestvie-po-armenii/",
+      en: "en/visit-armenia-without-tour-guide/",
+    },
+    yerevan: {
+      hy: "destinations/yerevan/",
+      ru: "ru/napravleniya/erevan/",
+      en: "en/destinations/yerevan/",
+    },
+    garni: {
+      hy: "destinations/garni-geghard/",
+      ru: "ru/napravleniya/garni-gegard/",
+      en: "en/destinations/garni-geghard/",
+    },
+    sevan: {
+      hy: "destinations/lake-sevan/",
+      ru: "ru/napravleniya/ozero-sevan/",
+      en: "en/destinations/lake-sevan/",
+    },
+    dilijan: {
+      hy: "destinations/dilijan/",
+      ru: "ru/napravleniya/dilizhan/",
+      en: "en/destinations/dilijan/",
+    },
+    gyumri: {
+      hy: "destinations/gyumri/",
+      ru: "ru/napravleniya/gyumri/",
+      en: "en/destinations/gyumri/",
+    },
+    khorvirap: {
+      hy: "destinations/khor-virap/",
+      ru: "ru/napravleniya/khor-virap/",
+      en: "en/destinations/khor-virap/",
+    },
   };
   const languages = Object.keys(paths);
-  const updated = "2026-11-20";
+  const guideFamilies = [
+    "planning",
+    "yerevan",
+    "garni",
+    "sevan",
+    "dilijan",
+    "gyumri",
+    "khorvirap",
+  ];
+  const updated = "2026-11-22";
 
   function pageUrl(language) {
     return new URL(paths[language], baseUrl).href;
@@ -51,12 +95,16 @@
           "@type": "Organization",
           "@id": organization,
           name: copy.brandName,
+          alternateName: ["Armmate", "armmate", "արմմեյթ", "арммейт"],
+          description: copy.serviceSummary,
           url: baseUrl,
           logo: { "@type": "ImageObject", url: baseUrl + "assets/logo.svg" },
           email: contacts.email,
+          areaServed: { "@type": "Country", name: "Armenia" },
           sameAs: contacts.channels
             .filter((contact) => contact.id === "telegram")
-            .map((contact) => contact.href),
+            .map((contact) => contact.href)
+            .concat(contacts.verifiedProfiles || []),
           contactPoint: {
             "@type": "ContactPoint",
             email: contacts.email,
@@ -82,6 +130,12 @@
           inLanguage: language,
           isPartOf: { "@id": website },
           about: { "@id": family === "contact" ? organization : service },
+          ...(family !== "home"
+            ? { breadcrumb: { "@id": url + "#breadcrumbs" } }
+            : {}),
+          ...(guideFamilies.includes(family)
+            ? { mainEntity: { "@id": url + "#article" } }
+            : {}),
           primaryImageOfPage: {
             "@type": "ImageObject",
             url: baseUrl + `assets/social-armmate-friends-${language}.png`,
@@ -92,15 +146,19 @@
         {
           "@type": "Service",
           "@id": service,
-          name: copy.heroLabel,
-          description: copy.description,
+          name: family === "companion" ? copy.h1 : copy.heroLabel,
+          description:
+            family === "companion" ? copy.description : copy.serviceSummary,
           serviceType:
             family === "companion"
               ? "Local companion in Yerevan"
               : "Personal travel assistance",
           areaServed: { "@type": "Country", name: "Armenia" },
           provider: { "@id": organization },
-          url,
+          url: contentPageUrl(
+            family === "companion" ? "companion" : "assistance",
+            language,
+          ),
         },
         {
           "@type": "FAQPage",
@@ -114,6 +172,25 @@
             acceptedAnswer: { "@type": "Answer", text: answer },
           })),
         },
+        ...(guideFamilies.includes(family)
+          ? [
+              {
+                "@type": "Article",
+                "@id": url + "#article",
+                headline: copy.h1,
+                description: copy.description,
+                inLanguage: language,
+                mainEntityOfPage: { "@id": url + "#webpage" },
+                author: { "@id": organization },
+                publisher: { "@id": organization },
+                datePublished: "2026-11-22",
+                dateModified: updated,
+                image:
+                  baseUrl + `assets/social-armmate-friends-${language}.png`,
+                citation: (copy.sources || []).map((source) => source.url),
+              },
+            ]
+          : []),
       ].filter((item) => family !== "contact" || item["@type"] !== "Service"),
     };
   }
@@ -123,7 +200,7 @@
     const head = document.head;
     head
       .querySelectorAll(
-        'meta[name="description"], meta[name="robots"], meta[name="google-site-verification"], meta[name="yandex-verification"], meta[property^="og:"], meta[name^="twitter:"], link[rel="canonical"], link[rel="alternate"][hreflang], link[rel="sitemap"], #structured-data, #breadcrumbs-data',
+        'meta[name="description"], meta[name="robots"], meta[name="google-site-verification"], meta[name="yandex-verification"], meta[name="msvalidate.01"], meta[property^="og:"], meta[name^="twitter:"], link[rel="canonical"], link[rel="alternate"][hreflang], link[rel="sitemap"], #structured-data, #breadcrumbs-data',
       )
       .forEach((element) => element.remove());
     function meta(attribute, name, content) {
@@ -160,6 +237,8 @@
       );
     if (contacts.yandexVerification)
       meta("name", "yandex-verification", contacts.yandexVerification);
+    if (contacts.bingVerification)
+      meta("name", "msvalidate.01", contacts.bingVerification);
     meta("property", "og:type", "website");
     meta("property", "og:site_name", copy.brandName);
     meta("property", "og:title", copy.title);
@@ -215,6 +294,7 @@
       breadcrumbs.textContent = JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": currentUrl + "#breadcrumbs",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -236,6 +316,7 @@
     contentPaths,
     contentPageUrl,
     languages,
+    guideFamilies,
     updated,
     pageUrl,
     structuredData,

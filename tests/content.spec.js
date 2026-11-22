@@ -66,7 +66,12 @@ for (const language of seo.languages) {
         seo.pageUrl(language),
         seo.contentPageUrl(family, language),
       ]);
-      await expect(page.locator(".content-related-link")).toHaveCount(2);
+      await expect(
+        page.locator(".content-related-link:not(.content-destination-link)"),
+      ).toHaveCount(3);
+      await expect(page.locator(".content-destination-link")).toHaveCount(
+        family === "planning" ? 6 : 0,
+      );
       await expect(page.locator("#faq details")).toHaveCount(
         content[family][language].faq.length,
       );
@@ -81,12 +86,12 @@ for (const language of seo.languages) {
   });
 }
 
-test("new page navigation, contacts and mobile layout work across languages", async ({
-  page,
-}) => {
-  const errors = [];
-  page.on("pageerror", (error) => errors.push(error.message));
-  for (const width of [320, 768, 1440]) {
+for (const width of [320, 768, 1440])
+  test(`content navigation, contacts and layout at ${width}px`, async ({
+    page,
+  }) => {
+    const errors = [];
+    page.on("pageerror", (error) => errors.push(error.message));
     await page.setViewportSize({ width, height: 900 });
     for (const language of seo.languages) {
       for (const family of Object.keys(seo.contentPaths)) {
@@ -114,9 +119,8 @@ test("new page navigation, contacts and mobile layout work across languages", as
         }
       }
     }
-  }
-  expect(errors).toEqual([]);
-});
+    expect(errors).toEqual([]);
+  });
 
 test("home-page service links follow the selected language", async ({
   page,
@@ -124,7 +128,7 @@ test("home-page service links follow the selected language", async ({
   await page.goto("/");
   for (const language of seo.languages) {
     await page.locator(`[data-lang="${language}"]`).click();
-    for (const family of Object.keys(seo.contentPaths)) {
+    for (const family of ["assistance", "companion", "contact", "planning"]) {
       const href = await page
         .locator(`[data-content-link="${family}"]`)
         .getAttribute("href");

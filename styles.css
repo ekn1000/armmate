@@ -28,6 +28,24 @@
   font-weight: 600 800;
   font-display: swap;
 }
+@font-face {
+  font-family: "Armenian Navigation";
+  src: url("assets/armenian-navigation.woff2") format("woff2");
+  font-weight: 600 800;
+  font-display: swap;
+}
+html:not([lang="hy"]) #languages [lang="hy"] {
+  font-family: "Armenian Navigation", Armenian, sans-serif;
+}
+@font-face {
+  font-family: "Armenian Greeting";
+  src: url("assets/armenian-greeting.woff2") format("woff2");
+  font-weight: 400 500;
+  font-display: swap;
+}
+html:not([lang="hy"]) .plan-mark {
+  font-family: "Armenian Greeting", Armenian, sans-serif;
+}
 :root {
   --ink: #243f35;
   --muted: #596552;
@@ -2558,6 +2576,32 @@ html[lang="hy"] .hero h1 {
   display: block;
   max-width: 760px;
   padding-top: 0;
+}
+.service-guides > .guide-card-more {
+  margin-top: 24px;
+}
+.content-sources {
+  padding-bottom: 48px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.content-sources h2 {
+  font-size: 24px;
+}
+.content-sources p,
+.content-sources ul {
+  margin-top: 14px;
+}
+.content-sources ul {
+  padding-left: 20px;
+}
+.content-sources a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.content-sources time {
+  white-space: nowrap;
 }
 @media (max-width: 900px) {
   .guide-grid,

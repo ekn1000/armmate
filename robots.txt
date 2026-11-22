@@ -1,4 +1,25 @@
+# Public search discovery. This is not a security boundary.
 User-agent: *
+Allow: /
+
+# Search crawlers are managed separately from model training.
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# GPTBot is a separate training preference; existing permission is preserved.
+User-agent: GPTBot
 Allow: /
 
 Sitemap: https://armmate.am/sitemap.xml

@@ -12,7 +12,7 @@
       href="../assets/favicon.svg?v=friends-1"
     />
 
-    <link rel="stylesheet" href="../styles.css?v=search-pages-1" />
+    <link rel="stylesheet" href="../styles.css?v=discovery-2026-11-22" />
 
     <link
       type="image/png"
@@ -53,7 +53,8 @@
       rel="preload"
     />
 
-    <script defer src="../content.js?v=search-pages-1"></script>
+    <script defer src="../content.js?v=discovery-2026-11-22"></script>
+    <script defer src="../analytics.js?v=discovery-2026-11-22"></script>
     <meta
       content="Կապվիր արմմեյթի հետ՝ Հայաստանում անձնական տուրիստական աջակցության համար։ Telegram՝ @armmate_support, WhatsApp և armmate.support@gmail.com։"
       name="description"
@@ -121,12 +122,15 @@
             "@type": "Organization",
             "@id": "https://armmate.am/#organization",
             "name": "արմմեյթ",
+            "alternateName": ["Armmate", "armmate", "արմմեյթ", "арммейт"],
+            "description": "արմմեյթը անձնական ճանապարհորդական աջակցություն է տրամադրում Հայաստան այցելողներին՝ առցանց ասիստենտ, տեղական խորհուրդներ և ընտրովի անձնական ուղեկցում՝ նախապես համաձայնեցված պայմաններով։",
             "url": "https://armmate.am/",
             "logo": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/logo.svg"
             },
             "email": "armmate.support@gmail.com",
+            "areaServed": { "@type": "Country", "name": "Armenia" },
             "sameAs": ["https://t.me/armmate_support"],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -153,6 +157,7 @@
             "inLanguage": "hy",
             "isPartOf": { "@id": "https://armmate.am/#website" },
             "about": { "@id": "https://armmate.am/#organization" },
+            "breadcrumb": { "@id": "https://armmate.am/contact/#breadcrumbs" },
             "primaryImageOfPage": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/social-armmate-friends-hy.png",
@@ -200,6 +205,7 @@
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": "https://armmate.am/contact/#breadcrumbs",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -283,7 +289,7 @@
     <a class="skip" href="#main" data-t="skip">Անցնել բովանդակությանը</a>
     <header class="header">
       <div class="container header-inner">
-        <a class="brand" href="../" aria-label="արմմեյթ"
+        <a class="brand" href="../" aria-label="armmate — արմմեյթ"
           ><svg class="brand-mark" aria-hidden="true">
             <use href="#i-brand" /></svg
           ><span>armmate</span></a
@@ -344,7 +350,7 @@
           <a href="../">Գլխավոր էջ</a><span aria-hidden="true">/</span
           ><span>Կապ արմմեյթի հետ</span>
         </nav>
-        <h1>Կապ արմմեյթի հետ</h1>
+        <h1 id="content-title">Կապ արմմեյթի հետ</h1>
         <p class="content-lead">
           Պատմիր քո այցի մասին և նշիր՝ ինչպիսի տեղական օգնություն ես փնտրում
           Հայաստանում։ Գրիր Telegram-ով, WhatsApp-ով կամ էլ. փոստով․ անհատական
@@ -427,7 +433,10 @@
           </p>
         </div>
       </section>
-      <div class="container content-sections">
+      <article
+        class="container content-sections"
+        aria-labelledby="content-title"
+      >
         <section class="content-section">
           <h2>Ինչ գրել առաջին հաղորդագրության մեջ</h2>
           <p>
@@ -456,7 +465,7 @@
             համապատասխանի իրական կարիքներիդ։
           </p>
         </section>
-      </div>
+      </article>
       <section class="container content-faq" id="faq">
         <h2>Հաճախ տրվող հարցեր</h2>
         <div class="faq-list">
@@ -488,10 +497,16 @@
         <h2>Իմացիր ավելին</h2>
         <div>
           <a class="content-related-link" href="../tourist-assistance/"
-            ><span>Անձնական ասիստենտ Հայաստանում</span
+            ><span
+              >Անձնական ասիստենտ և աջակցություն տուրիստներին Հայաստանում</span
             ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
           ><a class="content-related-link" href="../local-companion/"
-            ><span>Տեղացի ուղեկից Երևանում</span
+            ><span>Տեղացի ուղեկից Երևանում՝ քո ծրագրով</span
+            ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
+          ><a class="content-related-link" href="../travel-planning/"
+            ><span
+              >Ինչպես ճանապարհորդել Հայաստանում ինքնուրույն՝ տեղական
+              աջակցությամբ</span
             ><svg aria-hidden="true"><use href="#i-diagonal" /></svg
           ></a>
         </div>
@@ -500,7 +515,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
-          <a class="brand" href="../" aria-label="արմմեյթ"
+          <a class="brand" href="../" aria-label="armmate — արմմեյթ"
             ><svg class="brand-mark" aria-hidden="true">
               <use href="#i-brand" /></svg
             ><span>armmate</span></a

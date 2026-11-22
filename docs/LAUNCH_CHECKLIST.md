@@ -10,7 +10,7 @@ The public preview is deployed. Before presenting it as an operating service:
 - Confirm companion staffing and partner availability before committing to it. Prefer continuity with the same assistant where possible.
 - Decide any required business/legal contact and privacy information before collecting enquiries through a backend or analytics service. Do not add made-up contact or registration details.
 - Review the Armenian, Russian and English copy together whenever business terms change.
-- Complete Google Search Console and Yandex Webmaster ownership verification using the real account-issued tokens; see `docs/SEARCH-SETUP.md`. Never fabricate verification tokens or claim submitted notifications guarantee inclusion.
+- Use the existing Google Search Console property; the owner reports completing DNS verification and indexing requests. Check Yandex ownership in the existing account and complete Bing Webmaster setup if desired; see `docs/SEARCH-SETUP.md`. Never fabricate verification tokens or claim notifications guarantee inclusion.
 - Keep service scope and availability honest as the operating process develops.
 
 No automated pricing, online payment, booking engine or customer database is part of this implementation.

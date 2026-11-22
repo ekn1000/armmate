@@ -12,7 +12,7 @@
       href="../../assets/favicon.svg?v=friends-1"
     />
 
-    <link rel="stylesheet" href="../../styles.css?v=search-pages-1" />
+    <link rel="stylesheet" href="../../styles.css?v=discovery-2026-11-22" />
 
     <link
       type="image/png"
@@ -53,7 +53,8 @@
       rel="preload"
     />
 
-    <script defer src="../../content.js?v=search-pages-1"></script>
+    <script defer src="../../content.js?v=discovery-2026-11-22"></script>
+    <script defer src="../../analytics.js?v=discovery-2026-11-22"></script>
     <meta
       content="Свяжись с арммейтом для персональной помощи туристам в Армении. Telegram: @armmate_support, WhatsApp и почта armmate.support@gmail.com. Обсудим твою поездку."
       name="description"
@@ -121,12 +122,15 @@
             "@type": "Organization",
             "@id": "https://armmate.am/#organization",
             "name": "арммейт",
+            "alternateName": ["Armmate", "armmate", "արմմեյթ", "арммейт"],
+            "description": "арммейт предоставляет личную поддержку путешественникам в Армении: онлайн-ассистент, местные рекомендации и дополнительное личное сопровождение на заранее согласованных условиях.",
             "url": "https://armmate.am/",
             "logo": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/logo.svg"
             },
             "email": "armmate.support@gmail.com",
+            "areaServed": { "@type": "Country", "name": "Armenia" },
             "sameAs": ["https://t.me/armmate_support"],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -153,6 +157,9 @@
             "inLanguage": "ru",
             "isPartOf": { "@id": "https://armmate.am/#website" },
             "about": { "@id": "https://armmate.am/#organization" },
+            "breadcrumb": {
+              "@id": "https://armmate.am/ru/kontakty/#breadcrumbs"
+            },
             "primaryImageOfPage": {
               "@type": "ImageObject",
               "url": "https://armmate.am/assets/social-armmate-friends-ru.png",
@@ -200,6 +207,7 @@
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": "https://armmate.am/ru/kontakty/#breadcrumbs",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -283,7 +291,7 @@
     <a class="skip" href="#main" data-t="skip">Перейти к содержимому</a>
     <header class="header">
       <div class="container header-inner">
-        <a class="brand" href="../../ru/" aria-label="арммейт"
+        <a class="brand" href="../../ru/" aria-label="armmate — арммейт"
           ><svg class="brand-mark" aria-hidden="true">
             <use href="#i-brand" /></svg
           ><span>armmate</span></a
@@ -346,7 +354,7 @@
           <a href="../../ru/">Главная</a><span aria-hidden="true">/</span
           ><span>Контакты арммейта</span>
         </nav>
-        <h1>Контакты арммейта</h1>
+        <h1 id="content-title">Контакты арммейта</h1>
         <p class="content-lead">
           Расскажи о своей поездке и местной помощи, которая тебе нужна в
           Армении. Напиши в Telegram, WhatsApp или по электронной почте —
@@ -431,7 +439,10 @@
           </p>
         </div>
       </section>
-      <div class="container content-sections">
+      <article
+        class="container content-sections"
+        aria-labelledby="content-title"
+      >
         <section class="content-section">
           <h2>Что написать в первом сообщении</h2>
           <p>
@@ -459,7 +470,7 @@
             твоим реальным потребностям.
           </p>
         </section>
-      </div>
+      </article>
       <section class="container content-faq" id="faq">
         <h2>Частые вопросы</h2>
         <div class="faq-list">
@@ -492,12 +503,20 @@
           <a
             class="content-related-link"
             href="../../ru/pomoshch-turistam-v-armenii/"
-            ><span>Личный помощник туриста в Армении</span
+            ><span
+              >Помощь туристам в Армении: твой личный местный ассистент</span
             ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
           ><a
             class="content-related-link"
             href="../../ru/soprovozhdenie-turistov-v-erevane/"
-            ><span>Местный сопровождающий в Ереване</span
+            ><span>Местный сопровождающий в Ереване — под твои планы</span
+            ><svg aria-hidden="true"><use href="#i-diagonal" /></svg></a
+          ><a
+            class="content-related-link"
+            href="../../ru/samostoyatelnoe-puteshestvie-po-armenii/"
+            ><span
+              >Как путешествовать по Армении самостоятельно с местной
+              поддержкой</span
             ><svg aria-hidden="true"><use href="#i-diagonal" /></svg
           ></a>
         </div>
@@ -506,7 +525,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
-          <a class="brand" href="../../ru/" aria-label="арммейт"
+          <a class="brand" href="../../ru/" aria-label="armmate — арммейт"
             ><svg class="brand-mark" aria-hidden="true">
               <use href="#i-brand" /></svg
             ><span>armmate</span></a

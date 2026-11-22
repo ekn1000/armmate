@@ -2,8 +2,7 @@
 module.exports = {
   assistance: {
     hy: {
-      title:
-        "Տուրիստների աջակցություն Հայաստանում․ անձնական ասիստենտ | արմմեյթ",
+      title: "Անձնական տուրիստական ասիստենտ․ տեղական օգնություն | արմմեյթ",
       description:
         "Անձնական տեղացի ասիստենտ Հայաստանում՝ խորհուրդներ, տրանսպորտի կազմակերպում, ամրագրումներ և հաղորդակցման օգնություն։ Առցանց աջակցություն՝ անհատական առաջարկով։",
       h1: "Անձնական ասիստենտ և աջակցություն տուրիստներին Հայաստանում",
@@ -64,7 +63,7 @@ module.exports = {
       ],
     },
     ru: {
-      title: "Помощь туристам в Армении — личный ассистент | арммейт",
+      title: "Личный ассистент в Армении — поддержка в поездке | арммейт",
       description:
         "Личный помощник туриста в Армении: местные рекомендации, транспорт, бронирования и помощь с общением. Онлайн-поддержка и индивидуальное предложение от арммейта.",
       h1: "Помощь туристам в Армении: твой личный местный ассистент",
@@ -134,8 +133,8 @@ module.exports = {
         {
           title: "A local contact when Armenia is new to you",
           paragraphs: [
-            "Arriving somewhere unfamiliar often means making many small decisions: how to reach a place, where to eat, what to book and whom to ask when something changes. A personal assistant gives you one local person to discuss those questions with.",
-            "ARMMATE helps you find practical options around your interests, pace and budget. You might want a quiet day in Yerevan, a cultural experience or a trip outside the city. You make the choices, while your assistant helps with the next steps.",
+            "ARMMATE is a personal tourist assistance service for independent visitors to Armenia. Your local assistant helps with everyday travel decisions, from choosing where to eat to communicating with a driver, restaurant or hotel.",
+            "Think of a personal travel concierge: tell us your interests, pace and budget, and we help you find practical options. You might want a quiet day in Yerevan, a cultural experience or a trip outside the city. You make the choices, while your assistant helps with the next steps.",
           ],
         },
         {
@@ -482,3 +481,5 @@ module.exports = {
     },
   },
 };
+
+Object.assign(module.exports, require("./guide-content.cjs"));

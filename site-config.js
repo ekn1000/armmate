@@ -10,6 +10,9 @@
     email,
     searchConsoleVerification: "",
     yandexVerification: "",
+    bingVerification: "",
+    // Add only genuine, public profile URLs after the owner verifies them.
+    verifiedProfiles: Object.freeze([]),
     channels: Object.freeze([
       Object.freeze({
         id: "whatsapp",

@@ -220,6 +220,14 @@ window.ARMMATE_TRANSLATIONS = {
       ],
     ],
     footerTag: "Քո ընկերը Հայաստանում։",
+    serviceSummary:
+      "արմմեյթը անձնական ճանապարհորդական աջակցություն է տրամադրում Հայաստան այցելողներին՝ առցանց ասիստենտ, տեղական խորհուրդներ և ընտրովի անձնական ուղեկցում՝ նախապես համաձայնեցված պայմաններով։",
+    guidePlanningTitle: "Հայաստան՝ ինքնուրույն ճանապարհորդելու ուղեցույց",
+    destinationGuidesTitle: "Գործնական ուղեցույցներ՝ ըստ ուղղության",
+    sourcesTitle: "Աղբյուրներ և այցից առաջ ճշտումներ",
+    sourcesNote:
+      "Ուղղությունների մասին տեղեկությունները ստուգված են ստորև նշված աղբյուրներով։ Աշխատաժամերը, մուտքի պայմաններն ու փոխադրումները ճշտիր այցիդ օրերի համար։",
+    reviewedLabel: "Թարմացված է՝",
     demoLabel: "Անձնական աջակցություն Հայաստանում",
     madeWith: "Սիրով՝ Հայաստանից",
     credits: "Լուսանկարներ",
@@ -486,6 +494,14 @@ window.ARMMATE_TRANSLATIONS = {
       ],
     ],
     footerTag: "Твой друг в Армении.",
+    serviceSummary:
+      "арммейт предоставляет личную поддержку путешественникам в Армении: онлайн-ассистент, местные рекомендации и дополнительное личное сопровождение на заранее согласованных условиях.",
+    guidePlanningTitle: "Как путешествовать по Армении самостоятельно",
+    destinationGuidesTitle: "Практические путеводители по направлениям",
+    sourcesTitle: "Источники и проверка перед поездкой",
+    sourcesNote:
+      "Сведения о направлениях проверены по источникам ниже. Часы работы, условия входа и транспорт уточняй на даты своей поездки.",
+    reviewedLabel: "Обновлено:",
     demoLabel: "Персональная помощь в Армении",
     madeWith: "С любовью из Армении",
     credits: "Фотографии",
@@ -544,7 +560,7 @@ window.ARMMATE_TRANSLATIONS = {
     heroLabel: "Personal travel assistant and local support in Armenia",
     heroTitle: "Your friend<br><span>in Armenia.</span>",
     heroDescription:
-      "Explore independently, with a reliable local in your corner. Useful recommendations, practical support and a helping hand whenever you need it.",
+      "Your personal friend and assistant in Armenia. Explore independently, with local recommendations and practical support tailored to your visit.",
     heroExplore: "See how we can help",
     heroNote: "One local contact. Personal support. Your freedom.",
     heroAlt:
@@ -753,6 +769,15 @@ window.ARMMATE_TRANSLATIONS = {
       ],
     ],
     footerTag: "Your friend in Armenia.",
+    serviceSummary:
+      "ARMMATE is a personal tourist assistance service in Armenia, with a local assistant on WhatsApp or Telegram and optional in-person companionship. Support, availability and individual pricing are agreed before confirmation.",
+    guidePlanningTitle:
+      "Visit Armenia independently: a practical planning guide",
+    destinationGuidesTitle: "Practical destination guides",
+    sourcesTitle: "Sources and checks before you go",
+    sourcesNote:
+      "Destination information was checked against the sources below. Confirm opening hours, admission arrangements and transport for your travel dates.",
+    reviewedLabel: "Updated:",
     demoLabel: "Personal assistance in Armenia",
     madeWith: "With love, from Armenia",
     credits: "Photo credits",

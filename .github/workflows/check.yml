@@ -22,4 +22,5 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run check:format
       - run: npm run check:generated
+      - run: npm run audit:site
       - run: npm test
