@@ -142,6 +142,30 @@ The final application build and checks passed:
 
 Lighthouse measurements are recorded separately from structural validation. The Python preview serves uncompressed development assets, so preview timings must not be presented as a direct production comparison. Post-publication scores are observations, not field Core Web Vitals or ranking guarantees.
 
+### Published-site verification
+
+Website implementation commit: `1e7f4e81149f3e32c92167c6e9168c129172bdbc`. GitHub's Website checks and Pages deployment both succeeded. All 33 canonical HTML pages plus 13 shared/discovery/ownership resources were fetched from the public domain: 46 of 46 returned the expected committed bytes. This validates the actual deployment in addition to the local build. The genuine Yandex file remained available.
+
+Using the owner's earlier explicit Yandex submission authorisation, all 33 new/changed canonical URLs were then notified once through IndexNow. Yandex returned HTTP 200 at `2026-11-22T12:54:29.147Z`, accepting the notification with no pending key validation. No claim of indexed URLs, rankings or authenticated Webmaster verification follows from that response.
+
+Post-publication Lighthouse, using the same installed Chromium/Lighthouse and default mobile configuration as the initial live audit:
+
+| Live page                        | Performance | Accessibility | Best practices | SEO | LCP     | CLS | TBT      |
+| -------------------------------- | ----------- | ------------- | -------------- | --- | ------- | --- | -------- |
+| English home                     | 99          | 100           | 100            | 100 | 1.989 s | 0   | 0 ms     |
+| English assistance               | 100         | 100           | 100            | 100 | 0.948 s | 0   | 0 ms     |
+| English contact                  | 100         | 100           | 100            | 100 | 1.014 s | 0   | 0 ms     |
+| English planning guide           | 100         | 100           | 100            | 100 | 0.986 s | 0   | 14 ms    |
+| English Garni/Geghard guide      | 98          | 100           | 100            | 100 | 1.199 s | 0   | 143.5 ms |
+| Armenian home, initial final run | 89          | 100           | 100            | 100 | 2.009 s | 0   | 394 ms   |
+| Russian home                     | 100         | 100           | 100            | 100 | 1.844 s | 0   | 49 ms    |
+
+The Armenian home's slower run was investigated rather than discarded. Its long tasks were not attributed to application script evaluation in the report. Two fresh-browser confirmation runs, with no intervening website change, both scored Performance 100 / SEO 100 / Accessibility 100: LCP 1.818 s and 1.588 s, TBT 37 ms and 22 ms, and CLS 0 in both. The slower result was not reproduced in those checks; the underlying cause and real-user behaviour cannot be concluded from these lab samples alone. It remains recorded above rather than replaced by the best score.
+
+The English home's Performance score remains 99, while its measured LCP is essentially comparable to the baseline. The concrete improvement is reduced font transfer and a non-collecting integration hook, not a promised causal increase in every lab score. All seven representative pages scored SEO, Accessibility and Best Practices 100. Structural validation and browser route coverage apply to all 33 pages; Lighthouse scores for the other routes are not fabricated.
+
+Raw reports, public byte comparisons and captures are retained locally under ignored `qa/`: `baseline-summary-2026.json`, `lighthouse-production-summary.json`, `lighthouse-production-hy-confirmations.json`, `published-seo-2026.json` and `seo-2026-*.png`. Reproduce lab measurements with `npm run measure:pages`; timings may vary.
+
 ## 11. Prepared owner actions
 
 See the separate [external presence playbook](EXTERNAL-SEARCH-PLAYBOOK.md) and [monitoring plan](SEARCH-MONITORING.md). These contain the actual next steps and explicitly distinguish implemented code from account-bound work.
@@ -151,7 +175,7 @@ See the separate [external presence playbook](EXTERNAL-SEARCH-PLAYBOOK.md) and [
 3. Complete Bing Webmaster Tools through Google-property import or a genuine provided token. The code integration is prepared, not falsely verified.
 4. Complete the existing Google Business Profile and its business verification. Add the real logo and operating photos. Supply verified public profile URLs for `verifiedProfiles` only after they exist.
 5. If analytics collection is desired, provide the actual GA4 ID and the required privacy/consent decisions. The event hook is implemented; visitor tracking is not enabled.
-6. Establish legitimate directories and real partnerships where eligible. No accounts, reviews, posts or outreach were automatically published. No new external indexing notification is claimed.
+6. Establish legitimate directories and real partnerships where eligible. No accounts, reviews, posts or outreach were automatically published. The separately authorised Yandex notification was accepted as recorded above; actual indexing still requires account/report evidence.
 
 ## 12. Next decisions
 

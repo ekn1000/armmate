@@ -51,6 +51,8 @@ Choose the platform's appropriate fields for website and contact links. Some des
 
 ## Indexing notifications
 
-The sitemap is discovered through `robots.txt`. The existing Yandex IndexNow key and `npm run notify:yandex -- <changed paths>` are ready for explicitly authorised notifications after publication. The prior 20 November response was HTTP 202: notification received, key validation pending. It is not a record of this update being indexed. No new external submission is claimed by this report.
+The sitemap is discovered through `robots.txt`. Under the owner's earlier explicit authorisation to submit the site to Yandex, one IndexNow request was sent after validating the 22 November deployment. Yandex accepted all 33 new/changed canonical URLs with HTTP 200 at `2026-11-22T12:54:29.147Z`; key validation was no longer pending. This is notification acceptance, not proof of crawling, indexing, rankings or Yandex Webmaster account verification. The earlier 20 November response had been HTTP 202 for the original 12 URLs. The latest response is retained locally in `qa/yandex-indexnow-submission.json`.
+
+Use `npm run notify:yandex -- <changed paths>` for future authorised updates and submit only new/changed pages. No directory profile, social post or outreach message was published as part of the notification.
 
 Google does not provide a general-purpose anonymous submission API for ordinary service pages. Use the verified Search Console property, sitemap and URL Inspection. New content is not guaranteed to be indexed or recommended by any search or AI system.
