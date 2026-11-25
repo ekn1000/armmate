@@ -21,6 +21,8 @@ The office clarification remains an account-setting matter: the owner can receiv
 
 ## Current indexing constraints
 
+**Follow-up:** the [authenticated account review](SEARCH-ACCOUNT-FOLLOWUP-2026-11-25.md) records the subsequent accepted Google requests, verified Yandex HTTPS property, queued Yandex pages and submitted Bing support ticket. The pending-account descriptions and unsent support draft below describe the earlier state and are superseded by that follow-up.
+
 The owner reports that Search Console is still processing its report. Bing Webmaster continues to show a generic indexing warning despite a successful Live URL check. Yandex's owner screenshot reports a Summary-data outage, “No errors” and one unopened recommendation. These are distinct states; none provides an authoritative current indexed-page count.
 
 The existing publication workflow notifies IndexNow participating engines only after public pages match the published source. A notification being accepted is not proof of indexing. Google is not an IndexNow participant. There is no attempt to use Google's limited-purpose Indexing API for ordinary travel pages or to repeat accepted requests without a reason.

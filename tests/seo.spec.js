@@ -140,6 +140,9 @@ for (const lang of seo.languages) {
       seo.contentPageUrl("contact", lang),
     );
     expect(organization.sameAs).toContain("https://t.me/armmate_support");
+    expect(organization.sameAs).toContain(
+      "https://www.google.com/maps/place/armmate/data=!4m2!3m1!1s0x0:0xd6718f4fe13d50b7",
+    );
     expect(organization.email).toBe("armmate.support@gmail.com");
     expect(organization.contactPoint.email).toBe(organization.email);
     expect(JSON.stringify(schema)).not.toMatch(

@@ -11,8 +11,10 @@
     searchConsoleVerification: "",
     yandexVerification: "",
     bingVerification: "",
-    // Add only genuine, public profile URLs after the owner verifies them.
-    verifiedProfiles: Object.freeze([]),
+    // Official Maps profile checked against the business name, website and contacts.
+    verifiedProfiles: Object.freeze([
+      "https://www.google.com/maps/place/armmate/data=!4m2!3m1!1s0x0:0xd6718f4fe13d50b7",
+    ]),
     channels: Object.freeze([
       Object.freeze({
         id: "whatsapp",
