@@ -173,7 +173,12 @@ for (const [url, { family, language, document }] of pages) {
   );
   const webpage = graph.find(
     (item) =>
-      item["@type"] === (family === "contact" ? "ContactPage" : "WebPage"),
+      item["@type"] ===
+      (family === "contact"
+        ? "ContactPage"
+        : family === "about"
+          ? "AboutPage"
+          : "WebPage"),
   );
   check(
     webpage?.url === url && webpage?.inLanguage === language,

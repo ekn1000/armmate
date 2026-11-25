@@ -104,6 +104,13 @@ module.exports = async function buildContentPages({
       document
         .querySelectorAll("a.brand")
         .forEach((link) => link.setAttribute("href", home));
+      document.querySelectorAll("[data-content-link]").forEach((link) => {
+        const targetFamily = link.getAttribute("data-content-link");
+        link.setAttribute(
+          "href",
+          prefix + seo.contentPaths[targetFamily][language],
+        );
+      });
       document
         .querySelectorAll("#navigation a")
         .forEach((link) =>

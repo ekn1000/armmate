@@ -1096,6 +1096,11 @@ textarea:focus {
   margin-inline: 15px;
   color: #acb4a3;
 }
+.footer-about {
+  color: var(--ink);
+  text-underline-offset: 4px;
+  text-decoration: underline;
+}
 #credits-button {
   display: block;
   margin: 16px auto 0;

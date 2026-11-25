@@ -9,6 +9,11 @@
   const locales = { hy: "hy_AM", ru: "ru_RU", en: "en_GB" };
   const paths = { hy: "", ru: "ru/", en: "en/" };
   const contentPaths = {
+    about: {
+      hy: "about/",
+      ru: "ru/ob-armmeyte/",
+      en: "en/about-armmate/",
+    },
     assistance: {
       hy: "tourist-assistance/",
       ru: "ru/pomoshch-turistam-v-armenii/",
@@ -61,7 +66,7 @@
     },
   };
   const languages = Object.keys(paths);
-  const assetVersion = "discovery-2026-11-22-2";
+  const assetVersion = "identity-2026-11-25";
   const guidePlaces = {
     planning: ["Armenia"],
     yerevan: ["Yerevan"],
@@ -80,7 +85,7 @@
     "gyumri",
     "khorvirap",
   ];
-  const updated = "2026-11-22";
+  const updated = "2026-11-25";
 
   function pageUrl(language) {
     return new URL(paths[language], baseUrl).href;
@@ -108,6 +113,7 @@
           alternateName: ["Armmate", "armmate", "արմմեյթ", "арммейт"],
           description: copy.serviceSummary,
           url: baseUrl,
+          mainEntityOfPage: contentPageUrl("about", language),
           logo: { "@type": "ImageObject", url: baseUrl + "assets/logo.svg" },
           email: contacts.email,
           areaServed: { "@type": "Country", name: "Armenia" },
@@ -138,14 +144,26 @@
           inLanguage: languages,
         },
         {
-          "@type": family === "contact" ? "ContactPage" : "WebPage",
+          "@type":
+            family === "contact"
+              ? "ContactPage"
+              : family === "about"
+                ? "AboutPage"
+                : "WebPage",
           "@id": url + "#webpage",
           url,
           name: copy.title,
           description: copy.description,
           inLanguage: language,
           isPartOf: { "@id": website },
-          about: { "@id": family === "contact" ? organization : service },
+          about: {
+            "@id": ["about", "contact"].includes(family)
+              ? organization
+              : service,
+          },
+          ...(family === "about"
+            ? { mainEntity: { "@id": organization } }
+            : {}),
           ...(family !== "home"
             ? { breadcrumb: { "@id": url + "#breadcrumbs" } }
             : {}),

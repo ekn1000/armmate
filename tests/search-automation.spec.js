@@ -216,7 +216,7 @@ test("robot rules use the most specific agent and longest matching path", () => 
 test("live monitoring accepts a healthy site without contacting external services", async () => {
   const report = await checkLive({ fetchImpl: publicFixture, log: () => {} });
   expect(report.healthy).toBe(true);
-  expect(report.pageCount).toBe(33);
+  expect(report.pageCount).toBe(canonicalEntries().length);
   expect(report.errors).toEqual([]);
 });
 

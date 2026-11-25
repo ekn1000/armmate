@@ -25,7 +25,8 @@ window.ARMMATE_TRANSLATIONS = {
     introLabel: "Բարև, մենք արմմեյթն ենք",
     introTitle: "Քո ազատությունը։<br>Մեր տեղական փորձը։",
     introText:
-      "Հայաստանը վայելելու համար պարտադիր չէ ամեն ինչ իմանալ Հայաստանի մասին։ Բավական է ունենալ վստահելի տեղացի ասիստենտ, որին կարող ես դիմել քո այցի ընթացքում։",
+      "արմմեյթը Հայաստանում զբոսաշրջիկների անձնական աջակցության ծառայություն է։ Քո տեղացի ասիստենտն օգնում է խորհուրդների, տրանսպորտի կազմակերպման, ամրագրումների և առօրյա հարցերում, որպեսզի ճանապարհորդես քո ձևով։",
+    aboutLink: "Մեր մասին",
     introSub:
       "արմմեյթը անձնական աջակցության ծառայություն է, ոչ թե ավանդական տուրիստական գործակալություն կամ միայն էքսկուրսիաների ամրագրման հարթակ։ Դու ես որոշում՝ ուր գնալ և երբ օգնություն ստանալ։",
     value1Title: "Մեկ վստահելի կապ",
@@ -305,7 +306,8 @@ window.ARMMATE_TRANSLATIONS = {
     introLabel: "Барев, мы — арммейт",
     introTitle: "Твоя свобода.<br>Наш местный опыт.",
     introText:
-      "Чтобы наслаждаться Арменией, необязательно всё о ней знать. Достаточно иметь надёжного местного ассистента, к которому можно обратиться во время поездки.",
+      "арммейт — сервис персональной помощи туристам в Армении. Местный ассистент помогает с рекомендациями, организацией транспорта, бронированиями и повседневными вопросами, пока ты путешествуешь в своём ритме.",
+    aboutLink: "О нас",
     introSub:
       "арммейт — сервис персональной помощи, а не традиционное турагентство или просто платформа бронирования экскурсий. Ты решаешь, куда идти и когда нужна поддержка.",
     value1Title: "Один надёжный контакт",
@@ -584,7 +586,8 @@ window.ARMMATE_TRANSLATIONS = {
     introLabel: "BAREV. WE’RE ARMMATE.",
     introTitle: "Your independence.<br>Our local know-how.",
     introText:
-      "You don’t need to know Armenia to enjoy Armenia. You just need a reliable local assistant you can turn to throughout your stay.",
+      "ARMMATE is a personal tourist assistance service in Armenia. Your local assistant helps with recommendations, transport arrangements, reservations and everyday travel questions while you explore at your own pace.",
+    aboutLink: "About Armmate",
     introSub:
       "ARMMATE is a personal assistance service, rather than a traditional tour agency or simply an excursion booking platform. You choose where to go and when you’d like a helping hand.",
     value1Title: "One reliable local contact",

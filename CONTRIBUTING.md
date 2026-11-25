@@ -5,7 +5,7 @@ Clone `https://github.com/ekn1000/armmate.git`. A GitHub collaborator must accep
 1. Pull the latest `main` and create a branch for the change.
 2. Run the static site locally as described in the README.
 3. Update all three languages in `translations.js` together. Edit shared layout in the root `index.html`, then run `npm run build` and commit the regenerated language pages and sitemap. Run `npm run check:generated` to catch drift.
-   Service and contact page copy belongs in `scripts/search-content.cjs`; planning/destination copy belongs in `scripts/guide-content.cjs`; route families belong in `seo.js`. Keep each family's language alternatives reciprocal. Regenerate all 33 pages after changing shared contacts or metadata, including `llms.txt`.
+   Service and contact page copy belongs in `scripts/search-content.cjs`; business-overview copy belongs in `scripts/brand-content.cjs`; planning/destination copy belongs in `scripts/guide-content.cjs`; route families belong in `seo.js`. Keep each family's language alternatives reciprocal. Regenerate all 36 pages after changing shared contacts or metadata, including `llms.txt`.
 4. Keep verified public business contacts in `site-config.js`; never commit passwords, tokens or private customer information.
 5. Run `npm ci`, `npx playwright install chromium`, `npm test`, `npm run audit:site` and `npm run check:format`.
 6. Push the branch and open a pull request with the behaviour change and validation results.

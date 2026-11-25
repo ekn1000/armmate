@@ -4,6 +4,8 @@ A responsive Armenian, Russian and English website for a personal travel assista
 
 **Live site:** https://armmate.am/
 
+**What is Armmate?** Armmate is a personal tourist assistance service in Armenia: local recommendations, travel organisation and a local assistant on WhatsApp or Telegram. Optional in-person companionship and individual pricing are agreed personally. Read the [official business overview](https://armmate.am/en/about-armmate/) or [contact Armmate](https://armmate.am/en/contact/).
+
 **Business specification:** [docs/BUSINESS_CONCEPT.md](docs/BUSINESS_CONCEPT.md)
 
 **Brand and logo:** [docs/BRAND.md](docs/BRAND.md). Slogan: “Քո ընկերը Հայաստանում։ / Твой друг в Армении. / Your friend in Armenia.”
@@ -18,7 +20,7 @@ python scripts/serve.py
 
 Open http://127.0.0.1:4187. Armenian is at `/`, Russian at `/ru/`, and English at `/en/`. Each URL contains the complete translated HTML, including without JavaScript. Legacy `?lang=hy|ru|en` links still work with JavaScript. The original `#plan` anchor leads to direct contact links.
 
-The sitemap includes 33 canonical pages: three homepages, nine service/contact pages, three independent-travel planning guides and 18 destination guides. Routes live in `seo.js`; service content is in `scripts/search-content.cjs` and guide content in `scripts/guide-content.cjs`.
+The sitemap includes 36 canonical pages: three homepages, three business-overview pages, nine service/contact pages, three independent-travel planning guides and 18 destination guides. Routes live in `seo.js`; business identity content is in `scripts/brand-content.cjs`, service content in `scripts/search-content.cjs` and guide content in `scripts/guide-content.cjs`.
 
 ## Files
 
@@ -32,6 +34,7 @@ The sitemap includes 33 canonical pages: three homepages, nine service/contact p
 | `site-config.js`                        | Public WhatsApp, Telegram and email destinations                  |
 | `seo.js`, `scripts/build-pages.cjs`     | Shared metadata/schema and static language-page generator         |
 | `scripts/search-content.cjs`            | Localized assistance, companion and contact page content          |
+| `scripts/brand-content.cjs`             | First-party business overview in Armenian, Russian and English    |
 | `scripts/guide-content.cjs`             | Original planning and destination guides in all three languages   |
 | `scripts/build-content-pages.cjs`       | Static generation for service, contact and guide pages            |
 | `content.js`                            | Navigation and floating contacts on service/contact pages         |

@@ -483,3 +483,4 @@ module.exports = {
 };
 
 Object.assign(module.exports, require("./guide-content.cjs"));
+Object.assign(module.exports, require("./brand-content.cjs"));

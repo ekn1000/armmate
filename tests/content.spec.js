@@ -6,6 +6,8 @@ for (const language of seo.languages) {
   test(`${language}: service and contact pages are crawlable with working local assets`, async ({
     browser,
   }) => {
+    // This single case navigates every route in two languages.
+    test.setTimeout(90_000);
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
     const failures = [];
@@ -52,9 +54,25 @@ for (const language of seo.languages) {
         schema["@graph"].some(
           (item) =>
             item["@type"] ===
-            (family === "contact" ? "ContactPage" : "WebPage"),
+            (family === "contact"
+              ? "ContactPage"
+              : family === "about"
+                ? "AboutPage"
+                : "WebPage"),
         ),
       ).toBe(true);
+      if (family === "about") {
+        const about = schema["@graph"].find(
+          (item) => item["@type"] === "AboutPage",
+        );
+        const organization = schema["@graph"].find(
+          (item) => item["@type"] === "Organization",
+        );
+        expect(about.mainEntity).toEqual({ "@id": organization["@id"] });
+        expect(organization.mainEntityOfPage).toBe(
+          seo.contentPageUrl("about", language),
+        );
+      }
       const faq = schema["@graph"].find((item) => item["@type"] === "FAQPage");
       expect(
         faq.mainEntity.map((item) => [item.name, item.acceptedAnswer.text]),
@@ -90,6 +108,8 @@ for (const width of [320, 768, 1440])
   test(`content navigation, contacts and layout at ${width}px`, async ({
     page,
   }) => {
+    // The timeout covers the complete route/language matrix, not one page.
+    test.setTimeout(120_000);
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
     await page.setViewportSize({ width, height: 900 });
@@ -128,7 +148,13 @@ test("home-page service links follow the selected language", async ({
   await page.goto("/");
   for (const language of seo.languages) {
     await page.locator(`[data-lang="${language}"]`).click();
-    for (const family of ["assistance", "companion", "contact", "planning"]) {
+    for (const family of [
+      "about",
+      "assistance",
+      "companion",
+      "contact",
+      "planning",
+    ]) {
       const href = await page
         .locator(`[data-content-link="${family}"]`)
         .getAttribute("href");
