@@ -61,3 +61,13 @@ Website changes can make Armmate a clearer candidate for retrieval. Independent 
 The build and generated-output check passed. The complete static audit validates 36 pages with zero errors or warnings; all descriptions are within the required range. All 42 browser and automation tests passed locally in 5.5 minutes with one worker. The tests cover the new AboutPage primary-entity relationship, language-aware overview links, mobile layouts and existing business/contact rules.
 
 The first parallel local attempt exhausted aggregate 30-second budgets in tests that navigate the entire growing route matrix. Those multi-page cases now have explicit 90/120-second budgets; no assertions were removed. The successful final run exercised the whole suite. Production availability, workflow execution and actual notification responses are checked separately after publishing, rather than inferred from these local tests.
+
+## Verified publication
+
+Source commit: `cf780600c8ed8378ae89d4c955991a5b82b7f20c`.
+
+- [Pages deployment](https://github.com/ekn1000/armmate/actions/runs/45573143960) succeeded.
+- [Website checks and publication-triggered discovery](https://github.com/ekn1000/armmate/actions/runs/45573144003) succeeded, including the complete CI test suite.
+- The independent live check at `2026-11-25T08:05:44.912Z` found all 36 pages healthy. Every page matches the tested generated HTML, with unique metadata, correct overview/entity links and no reported errors. The Googlebot, bingbot, OAI-SearchBot, PerplexityBot and Claude-SearchBot user-agent probes returned HTTP 200; the favicon probe returned the expected 192×192 PNG.
+- The workflow artifact records a single 36-URL notification to the global IndexNow endpoint at `2026-11-25T08:05:48.978Z`, with **HTTP 200**, `accepted: true` and `pendingKeyValidation: false`. These pages were changed or added by this publication; no duplicate manual submission was made. The response establishes receipt, not indexing or AI recommendations.
+- Raw production results and the notification artifact are retained in ignored `qa/search-review-2026-11-25/` files; the CI notification report is also retained as a GitHub Actions artifact. No account screenshot or credentials are published with this report.
